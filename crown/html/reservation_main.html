@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예약메인</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="../jquery-ui.min.css" type="text/css"/>
+<link rel="stylesheet" href="../css/reservation.css" type="text/css"/>
+<link rel="stylesheet" href="../api/calendar/daterangepicker.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="../jquery-ui.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../api/calendar/moment.min.js"></script>
+<script src="../api/calendar/daterangepicker.js"></script>
+
+</head>
+<body>
+<header>
+	<ul id="menubar">
+	      <li><a href="#">EVENT</a>
+	      	<ul>
+	      	  <li><h2>EVENT</h2></li>
+	           <li><a href="#">EVENTMAIN</a></li>
+	           <img src="../img/1010.jpg"/>
+	      	</ul>
+	      </li>
+	      <li><a href="#">ROOM</a>
+	         <ul>
+	           <li><h2>ROOM</h2></li>
+	           <li><a href="#">STANDARD</a></li>
+	           <li><a href="#">DELUX</a></li>
+	           <li><a href="#">SUITE</a></li>
+	           <img src="../img/1010.jpg"/>
+	         </ul>
+	      </li>
+	      <li><a href="#">RESTAURANTS</a>
+	       <ul>
+	           <li><h2>RESTAURANTS</h2></li>
+	           <li><a href="#">레스토랑 안내</a></li>
+	           <li><a href="#">카페</a></li>
+	           <img src="../img/1010.jpg"/>
+	        
+	         </ul>
+	        
+	      </li>
+	      <li>
+	      <!-- -------------------------------------- -->
+	    		<a href="#"><img src="../img/왕관.jpg" id="crown"/><br/>Grand<br/>crown</a>
+	     
+	      </li>
+	      <li><a href="#">INFORMATION</a>
+	      <ul>
+	     	  
+	           <li><h2>INFORMATION</h2></li>
+	       	   <li><a href="#">호텔 소개</a></li>
+	           <li><a href="#">제작자</a></li>
+	           <li><a href="#">오시는 길 </a></li>
+	           <li><a href="#">주변 관광지</a></li>
+	           <img src="../img/1010.jpg"/>
+	      	</ul>      
+	      </li>
+	       <li><a href="#">RESERVATION</a>
+	      <ul>
+	      	   <li><h2>RESERVATION</h2></li>
+	       	   <li><a href="#">예약</a></li>
+	           <li><a href="#">예약 확인</a></li>
+	           <li><a href="#">고객문의</a></li>
+	           <img src="../img/1010.jpg"/>
+	       </ul>      
+	      </li>
+	        <li><a href="#">MEMBERSHIP</a>
+	      </li>
+	</ul>
+</header>
+
+<section class="rsvSection">
+<div class="container">
+	<!-- 화면 이동 이미지 -->
+	<div class="rsv_title"><h2>호텔, 날짜, 인원 선택</h2></div>
+	<!-- 예약(옵션, 달력) -->
+	<div class="rsv_wrap">
+		<!-- 옵션 선택 -->
+		<div class="rsv_select">
+			<!-- 체크인 -->
+			<div class="rsv_chk">
+				<div>체크인</div>
+				<div id="chkInDate" onclick="rsvDate()">2020.04.29</div>
+			</div>
+			<!-- 숙박 아이콘 -->
+			<div class="stay">
+				<div><img src=""/></div>
+				<div>1박</div>
+			</div>
+			<!-- 체크아웃 -->
+			<div class="rsv_chk">
+				<div>체크아웃</div>
+				<div id="chkOutDate" onclick="rsvDate()">2020.04.30</div>
+			</div>
+			<!-- 객실 -->
+			<div class="rsv_cnt">
+				<div>객실</div>
+				<div>1</div>
+			</div>
+			<!-- 인원 -->
+			<div class="rsv_cnt">
+				<div>성인</div>
+				<div>2</div>
+			</div>
+			<div class="rsv_cnt">
+				<div>어린이</div>
+				<div>0</div>
+			</div>
+			<div class="rsv_btn_search">
+				<a href="#">검색</a>
+			</div>
+		</div><!-- 옵션 선택 -->
+		<!-- 예약 달력 -->
+		<div class="rsv_calendar">
+			<!-- 달력 박스-->
+			<div class="calendar_box">
+				<a href="#" id="prevCal"></a>
+				<div id="src_calendar"></div>
+				<div id="dest_calendar"></div>
+				<a href="#" id="nextCal"></a>
+			</div>
+			<!-- 버튼 -->
+			<div class="calendar_btn">
+				<a href="#">
+					<img src="../img/btn_cal.jpg"/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 예약가능 객실 리스트 -->
+	<div class="rsv_bookable_list">
+		<!-- 아이템 정렬바 -->
+		<ul class="rsv_sort">
+			<li>
+				<div>회원전용</div>
+			</li>
+			<li>
+				<div>
+					<select name="객실">
+						<option value="">객실선택</option>
+						<option value="standard">Standard</option>
+						<option value="deluxe">Deluxe</option>
+						<option value="suite">Suite</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<div>낮은가격순</div>
+			</li>
+			<li>
+				<div>높은가격순</div>
+			</li>
+		</ul>
+		<!-- 객실 리스트 -->
+		<ul class="room_item_wrap" id="roomItemWrap">
+			
+			<!-- 1 -->
+			<!-- 객실 아이템 -->
+			<li id="roomItem1">
+				<div class="rsv_item">
+					<!-- 객실 사진 -->
+					<div>
+						<img src="../img/room.png"/>
+					</div>
+					<!-- 객실명, 상세버튼 -->
+					<div>
+						<span class="font_content">Member Exclusive</span><br/>
+						<span class="font_sub">회원전용 객실 할인</span><br/>
+						<a href="#" onclick="clickPopup()">
+							<span>혜택 및 이용안내</span>
+							<svg class="bi bi-plus-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							  <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+							</svg>
+						</a>
+					</div>
+					<!-- 가격, 숙박일 -->
+					<div>
+						<span class="font_main">243,000원</span><br/>
+						<span class="font_sub">1박</span><br/>
+					</div>
+					<div class="rsv_btn_step1">
+						<a href="#"><img src="../img/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
+					</div>
+				</div><!-- rsv_item -->
+				<!-- 예약 상세: 배드타입 -->
+				<div class="rsv_bed_wrap">
+					<!-- 객실명 -->
+					<div class="rsv_bed_roomName">Standard</div>
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" name="radioBed1" id="selTwin1"/>
+							</span>
+							<label for="selTwin1">
+								<span>
+									<img src="../img/twin.jpg" class="img_icon"/>
+								</span>
+								<span>Twin</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" name="radioBed1" id="selDouble1"/>
+							</span>
+							<label for="selDouble1">
+								<span>
+									<img src="../img/double.jpg" class="img_icon"/>
+								</span>
+								<span>Double</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" id="selTwinTow1" name="radioBed1"/>
+							</span>
+							<label for="selTwinTow1">
+								<span>
+									<img src="../img/twin.jpg" class="img_icon"/>
+								</span>
+								<span>Twin</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+				</div><!-- 예약 상세: 배드타입 -->
+			</li><!-- 객실 아이템 -->
+			
+			<!-- 2 -->
+			<!-- 객실 아이템 -->
+			<li id="roomItem2">
+				<div class="rsv_item">
+					<!-- 객실 사진 -->
+					<div>
+						<img src="../img/room.png"/>
+					</div>
+					<!-- 객실명, 상세버튼 -->
+					<div>
+						<span class="font_content">Member Exclusive</span><br/>
+						<span class="font_sub">회원전용 객실 할인</span><br/>
+						<a href="#" onclick="clickPopup()">
+							<span>혜택 및 이용안내</span>
+							<svg class="bi bi-plus-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							  <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+							</svg>
+						</a>
+					</div>
+					<!-- 가격, 숙박일 -->
+					<div>
+						<span class="font_main">243,000원</span><br/>
+						<span class="font_sub">1박</span><br/>
+					</div>
+					<div class="rsv_btn_step1">
+						<a href="#"><img src="../img/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
+					</div>
+				</div><!-- rsv_item -->
+				<!-- 예약 상세: 배드타입 -->
+				<div class="rsv_bed_wrap">
+					<!-- 객실명 -->
+					<div class="rsv_bed_roomName">Standard</div>
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" name="radioBed2" id="selTwin2"/>
+							</span>
+							<label for="selTwin2">
+								<span>
+									<img src="../img/twin.jpg" class="img_icon"/>
+								</span>
+								<span>Twin</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" name="radioBed2" id="selDouble2"/>
+							</span>
+							<label for="selDouble2">
+								<span>
+									<img src="../img/double.jpg" class="img_icon"/>
+								</span>
+								<span>Double</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" id="selTwinTow2" name="radioBed2"/>
+							</span>
+							<label for="selTwinTow2">
+								<span>
+									<img src="../img/twin.jpg" class="img_icon"/>
+								</span>
+								<span>Twin</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+				</div><!-- 예약 상세: 배드타입 -->
+			</li><!-- 객실 아이템 -->
+			
+			<!-- 3 -->
+			<!-- 객실 아이템 -->
+			<li id="roomItem3">
+				<div class="rsv_item">
+					<!-- 객실 사진 -->
+					<div>
+						<img src="../img/room.png"/>
+					</div>
+					<!-- 객실명, 상세버튼 -->
+					<div>
+						<span class="font_content">Member Exclusive</span><br/>
+						<span class="font_sub">회원전용 객실 할인</span><br/>
+						<a href="#" onclick="clickPopup()">
+							<span>혜택 및 이용안내</span>
+							<svg class="bi bi-plus-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							  <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+							</svg>
+						</a>
+					</div>
+					<!-- 가격, 숙박일 -->
+					<div>
+						<span class="font_main">243,000원</span><br/>
+						<span class="font_sub">1박</span><br/>
+					</div>
+					<div class="rsv_btn_step1">
+						<a href="#"><img src="../img/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
+					</div>
+				</div><!-- rsv_item -->
+				<!-- 예약 상세: 배드타입 -->
+				<div class="rsv_bed_wrap">
+					<!-- 객실명 -->
+					<div class="rsv_bed_roomName">Standard</div>
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" name="radioBed3" id="selTwin3"/>
+							</span>
+							<label for="selTwin3">
+								<span>
+									<img src="../img/twin.jpg" class="img_icon"/>
+								</span>
+								<span>Twin</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" name="radioBed3" id="selDouble3"/>
+							</span>
+							<label for="selDouble3">
+								<span>
+									<img src="../img/double.jpg" class="img_icon"/>
+								</span>
+								<span>Double</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+					<!-- 배드 아이템 -->
+					<div class="rsv_bed_item">
+						<div>
+							<span>
+								<input type="radio" id="selTwinTow3" name="radioBed3"/>
+							</span>
+							<label for="selTwinTow3">
+								<span>
+									<img src="../img/twin.jpg" class="img_icon"/>
+								</span>
+								<span>Twin</span>
+							</label>
+						</div>
+						<div>
+							<a href="#">비교함담기</a>
+						</div>
+						<div>
+							<span>
+								<a href="#">다른 날짜 요금&nbsp; &gt;</a>
+							</span>
+							<span>
+								<strong>"81,000&nbsp;원"</strong>
+							</span>
+						</div>
+					</div><!-- 배드 아이템 -->
+				</div><!-- 예약 상세: 배드타입 -->
+			</li><!-- 객실 아이템 -->
+		</ul><!-- 객실 리스트 -->
+	</div>
+	
+	<!-- 혜택및 이용 안내: 팝업창 -->
+	<div class="popup" id="popup">
+		<!-- title -->
+		<div class="popup_head">
+			<div class="popup_title">혜택 및 이용안내</div>
+			<!-- close 버튼 -->
+			<div>
+				<a href="#" onclick="closePopup()">X</a>
+			</div>
+		</div>
+		<!-- content -->
+		<div class="popup_content">sdfsdf</div>
+	</div>
+	<!-- 모달 -->
+	<div id="modal"></div>
+</div>
+</section>
+
+<footer>
+<div id="homeFooter">
+	<ul id="homeFooterList">
+		<li><h1>CROWN</h1></li>
+		<li>호텔소개|</li>
+		<li>고객문의|</li>
+		<li>이용약관|</li>
+		<li>개인정보처리방침</li>
+	</ul>
+	<ul id="companyIntroduction">
+		<li>(주)HOTELCROWN|</li>
+		<li>대표자:정호윤</li>
+		<li>서울 마포구 백범로 구프라자 3층</li>
+		<li>02-707-1480 &nbsp;</li>
+		<li>info@thebit.com</li>
+	</ul>
+</div>
+</footer>
+</body>
+</html>
