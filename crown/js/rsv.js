@@ -16,13 +16,13 @@ $(function (){
 		 
 		//예약하기 버튼 이미지 변경
 		if(imgTag.indexOf("btn_rsv")!=-1){//닫기로 변경
-			$(this).attr("src","../img/btn_close.jpg");
+			$(this).attr("src","../img/reservation/btn_close.jpg");
 			//배드선택 div 열기
 			$(this).closest(".rsv_item").next().css("display","block");
 			//imgChangCnt=0;
 			 return false;//a태그 #링크 움직임 막기 용도
 		}else if(imgTag.indexOf("btn_close")!=-1){//예약하기로 변경
-			$(this).attr("src","../img/btn_rsv.jpg");
+			$(this).attr("src","../img/reservation/btn_rsv.jpg");
 			//배드선택 div 닫기
 			$(this).closest(".rsv_item").next().css("display","none");
 			//imgChangCnt=1;
@@ -148,108 +148,89 @@ $(function (){
 	    $('#dinnerChildCnt').text(num);
 	});
 	 
-
+	//달력
+		$('.rsv_chk').daterangepicker({
+		    opens: 'left'
+		  }, function(start, end, label) {
+		    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+		    $("#chkInDate").text(start.format('YYYY-MM-DD'));
+		    $("#chkOutDate").text(end.format('YYYY-MM-DD'));
+		  });
 
 });
 
 
 var now = new Date();
 //달력으로 예약 날짜 잡기
-function rsvDate(){
-	
- 	var srcCal = document.getElementById('src_calendar');
- 	var destCal = document.getElementById('dest_calendar');
-
-    var srcCalendar = new FullCalendar.Calendar(srcCal, {
-      plugins: [ 'interaction','dayGrid', 'timeGrid','moment' ]
-    
-     ,contentHeight:350
-     ,month: 'short'
-     ,titleFormat: function(date) {
-    		return `${date.date.year}. ${date.date.month + 1}`;
-     }
-     ,columnHeaderText: function(date) {
-	    let weekList = ["일", "월", "화", "수", "목", "금", "토"];
-	    return weekList[date.getDay()];
-	   }
-     ,fixedWeekCount:false
-     ,header: {
-         left: 'title',
-         center: '',
-         right: ''
-       }
-     ,defaultDate:now
-     ,selectable: true
-     ,dateClick: function(info) {
-         alert('clicked ' + info.dateStr);
-      }
-     ,select: function(start, end) {
-    	    if(start.isBefore(now)) {
-    	        $('#src_calendar').fullCalendar('unselect');
-    	        return false;
-    	    }
-     }
-     
-
-    });
-    
-    var destCalendar = new FullCalendar.Calendar(destCal, {
-    	plugins: [ 'interaction','dayGrid', 'timeGrid' ]
-    	,contentHeight:350
-    	,month: 'short'
-    	,titleFormat: function(date) {
-    			return `${date.date.year}. ${date.date.month + 1}`;
-    	}
-        ,columnHeaderText: function(date) {
-        	let weekList = ["일", "월", "화", "수", "목", "금", "토"];
-        	return weekList[date.getDay()];
-	    }
-        ,fixedWeekCount:false
-        ,header: {
-        	left: 'title',
-        	center: '',
-        	right: ''
-        }
-        ,selectable: true
-        ,dateClick: function(info) {
-            alert('clicked ' + info.dateStr);
-         }
-        ,select: function(info) {
-            alert('selected ' + info.startStr + ' to ' + info.endStr);
-         }
-        
-    });
-    srcCalendar.render();
-    destCalendar.render();
-    
-    
-}
-var chargeBottom = document.getElementById("chargeWrap").style.bottom;
-//결제 창 스크롤 이동
-function chargeMove(){
-	var scrollTop = window.scrollY;//스크롤바 위치
-	var contentY = document.body.scrollHeight; //전체 컨텐츠 높이
-	var viewportY= window.innerHeight;//윈도우 높이
-	var footerY=200;
-	console.log(scrollTop);
-	console.log(viewportY);
-	console.log(contentY);
-	console.log(contentY-scrollTop);
-	console.log(document.getElementById("chargeWrap").style.bottom);
-	var bottom=0;
-	//컨텐츠 넓이에서 스크롤바 위치를 빼서 viewport 높이와 같으면  
-	if(viewportY>contentY-scrollTop){//스크롤 위로 올림
-		document.getElementById("chargeWrap").style.position = "absolute";
-		document.getElementById("chargeWrap").style.bottom = scrollTop+"px";
-	}else if(viewportY<contentY-scrollTop){//스크롤 아래로 내림
-		document.getElementById("chargeWrap").style.bottom =-scrollTop+"px";
-	}
-	else if(viewportY+footerY+500>contentY-scrollTop){
-		console.log("shdfklsjdlkfjlsdjflsjdflsjdf");
-		document.getElementById("chargeWrap").style.position = "static";
-	}
-}
-
+//function rsvDate(){
+//	
+// 	var srcCal = document.getElementById('src_calendar');
+// 	var destCal = document.getElementById('dest_calendar');
+//
+//    var srcCalendar = new FullCalendar.Calendar(srcCal, {
+//      plugins: [ 'interaction','dayGrid', 'timeGrid','moment' ]
+//    
+//     ,contentHeight:350
+//     ,month: 'short'
+//     ,titleFormat: function(date) {
+//    		return `${date.date.year}. ${date.date.month + 1}`;
+//     }
+//     ,columnHeaderText: function(date) {
+//	    let weekList = ["일", "월", "화", "수", "목", "금", "토"];
+//	    return weekList[date.getDay()];
+//	   }
+//     ,fixedWeekCount:false
+//     ,header: {
+//         left: 'title',
+//         center: '',
+//         right: ''
+//       }
+//     ,defaultDate:now
+//     ,selectable: true
+//     ,dateClick: function(info) {
+//         alert('clicked ' + info.dateStr);
+//      }
+//     ,select: function(start, end) {
+//    	    if(start.isBefore(now)) {
+//    	        $('#src_calendar').fullCalendar('unselect');
+//    	        return false;
+//    	    }
+//     }
+//     
+//
+//    });
+//    
+//    var destCalendar = new FullCalendar.Calendar(destCal, {
+//    	plugins: [ 'interaction','dayGrid', 'timeGrid' ]
+//    	,contentHeight:350
+//    	,month: 'short'
+//    	,titleFormat: function(date) {
+//    			return `${date.date.year}. ${date.date.month + 1}`;
+//    	}
+//        ,columnHeaderText: function(date) {
+//        	let weekList = ["일", "월", "화", "수", "목", "금", "토"];
+//        	return weekList[date.getDay()];
+//	    }
+//        ,fixedWeekCount:false
+//        ,header: {
+//        	left: 'title',
+//        	center: '',
+//        	right: ''
+//        }
+//        ,selectable: true
+//        ,dateClick: function(info) {
+//            alert('clicked ' + info.dateStr);
+//         }
+//        ,select: function(info) {
+//            alert('selected ' + info.startStr + ' to ' + info.endStr);
+//         }
+//        
+//    });
+//    srcCalendar.render();
+//    destCalendar.render();
+//    
+//    
+//}
 
 //popup 메뉴
 function clickPopup(){
@@ -264,14 +245,4 @@ function closePopup(){
 	document.body.style.overflow ="scroll";
 }
 
-//달력
-$(function() {
-  $('#chkInDate').daterangepicker({
-    opens: 'left'
-  }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-    $("#chkInDate").text(start.format('YYYY-MM-DD'));
-    $("#chkOutDate").text(end.format('YYYY-MM-DD'));
-  });
-});
 

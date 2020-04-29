@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="../jquery-ui.min.js"></script>
-<script src="../js/script.js"></script>
+<script src="../js/rsv.js"></script>
 <script src="../api/calendar/moment.min.js"></script>
 <script src="../api/calendar/daterangepicker.js"></script>
 
@@ -47,7 +47,7 @@
 	      </li>
 	      <li>
 	      <!-- -------------------------------------- -->
-	    		<a href="#"><img src="../img/왕관.jpg" id="crown"/><br/>Grand<br/>crown</a>
+	    		<a href="#"><img src="../img/reservation/왕관.jpg" id="crown"/><br/>Grand<br/>crown</a>
 	     
 	      </li>
 	      <li><a href="#">INFORMATION</a>
@@ -86,7 +86,7 @@
 			<!-- 체크인 -->
 			<div class="rsv_chk">
 				<div>체크인</div>
-				<div id="chkInDate" onclick="rsvDate()">2020.04.29</div>
+				<div id="chkInDate">2020.04.29</div>
 			</div>
 			<!-- 숙박 아이콘 -->
 			<div class="stay">
@@ -96,7 +96,7 @@
 			<!-- 체크아웃 -->
 			<div class="rsv_chk">
 				<div>체크아웃</div>
-				<div id="chkOutDate" onclick="rsvDate()">2020.04.30</div>
+				<div id="chkOutDate">2020.04.30</div>
 			</div>
 			<!-- 객실 -->
 			<div class="rsv_cnt">
@@ -119,16 +119,11 @@
 		<!-- 예약 달력 -->
 		<div class="rsv_calendar">
 			<!-- 달력 박스-->
-			<div class="calendar_box">
-				<a href="#" id="prevCal"></a>
-				<div id="src_calendar"></div>
-				<div id="dest_calendar"></div>
-				<a href="#" id="nextCal"></a>
-			</div>
+			<div class="calendar_box" id="calendarBox"></div>
 			<!-- 버튼 -->
 			<div class="calendar_btn">
 				<a href="#">
-					<img src="../img/btn_cal.jpg"/>
+					<img src="../img/reservation/btn_cal.jpg"/>
 				</a>
 			</div>
 		</div>
@@ -166,7 +161,7 @@
 				<div class="rsv_item">
 					<!-- 객실 사진 -->
 					<div>
-						<img src="../img/room.png"/>
+						<img src="../img/reservation/room.png"/>
 					</div>
 					<!-- 객실명, 상세버튼 -->
 					<div>
@@ -187,7 +182,7 @@
 						<span class="font_sub">1박</span><br/>
 					</div>
 					<div class="rsv_btn_step1">
-						<a href="#"><img src="../img/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
+						<a href="#"><img src="../img/reservation/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
 					</div>
 				</div><!-- rsv_item -->
 				<!-- 예약 상세: 배드타입 -->
@@ -202,7 +197,7 @@
 							</span>
 							<label for="selTwin1">
 								<span>
-									<img src="../img/twin.jpg" class="img_icon"/>
+									<img src="../img/reservation/twin.jpg" class="img_icon"/>
 								</span>
 								<span>Twin</span>
 							</label>
@@ -227,7 +222,7 @@
 							</span>
 							<label for="selDouble1">
 								<span>
-									<img src="../img/double.jpg" class="img_icon"/>
+									<img src="../img/reservation/double.jpg" class="img_icon"/>
 								</span>
 								<span>Double</span>
 							</label>
@@ -252,7 +247,7 @@
 							</span>
 							<label for="selTwinTow1">
 								<span>
-									<img src="../img/twin.jpg" class="img_icon"/>
+									<img src="../img/reservation/twin.jpg" class="img_icon"/>
 								</span>
 								<span>Twin</span>
 							</label>
@@ -278,7 +273,7 @@
 				<div class="rsv_item">
 					<!-- 객실 사진 -->
 					<div>
-						<img src="../img/room.png"/>
+						<img src="../img/reservation/room.png"/>
 					</div>
 					<!-- 객실명, 상세버튼 -->
 					<div>
@@ -299,7 +294,7 @@
 						<span class="font_sub">1박</span><br/>
 					</div>
 					<div class="rsv_btn_step1">
-						<a href="#"><img src="../img/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
+						<a href="#"><img src="../img/reservation/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
 					</div>
 				</div><!-- rsv_item -->
 				<!-- 예약 상세: 배드타입 -->
@@ -314,7 +309,7 @@
 							</span>
 							<label for="selTwin2">
 								<span>
-									<img src="../img/twin.jpg" class="img_icon"/>
+									<img src="../img/reservation/twin.jpg" class="img_icon"/>
 								</span>
 								<span>Twin</span>
 							</label>
@@ -339,7 +334,7 @@
 							</span>
 							<label for="selDouble2">
 								<span>
-									<img src="../img/double.jpg" class="img_icon"/>
+									<img src="../img/reservation/double.jpg" class="img_icon"/>
 								</span>
 								<span>Double</span>
 							</label>
@@ -364,7 +359,7 @@
 							</span>
 							<label for="selTwinTow2">
 								<span>
-									<img src="../img/twin.jpg" class="img_icon"/>
+									<img src="../img/reservation/twin.jpg" class="img_icon"/>
 								</span>
 								<span>Twin</span>
 							</label>
@@ -390,7 +385,7 @@
 				<div class="rsv_item">
 					<!-- 객실 사진 -->
 					<div>
-						<img src="../img/room.png"/>
+						<img src="../img/reservation/room.png"/>
 					</div>
 					<!-- 객실명, 상세버튼 -->
 					<div>
@@ -411,7 +406,7 @@
 						<span class="font_sub">1박</span><br/>
 					</div>
 					<div class="rsv_btn_step1">
-						<a href="#"><img src="../img/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
+						<a href="#"><img src="../img/reservation/btn_rsv.jpg" alt="예약하기" class="btnRsvImg"/></a>
 					</div>
 				</div><!-- rsv_item -->
 				<!-- 예약 상세: 배드타입 -->
@@ -426,7 +421,7 @@
 							</span>
 							<label for="selTwin3">
 								<span>
-									<img src="../img/twin.jpg" class="img_icon"/>
+									<img src="../img/reservation/twin.jpg" class="img_icon"/>
 								</span>
 								<span>Twin</span>
 							</label>
@@ -451,7 +446,7 @@
 							</span>
 							<label for="selDouble3">
 								<span>
-									<img src="../img/double.jpg" class="img_icon"/>
+									<img src="../img/reservation/double.jpg" class="img_icon"/>
 								</span>
 								<span>Double</span>
 							</label>
@@ -476,7 +471,7 @@
 							</span>
 							<label for="selTwinTow3">
 								<span>
-									<img src="../img/twin.jpg" class="img_icon"/>
+									<img src="../img/reservation/twin.jpg" class="img_icon"/>
 								</span>
 								<span>Twin</span>
 							</label>
