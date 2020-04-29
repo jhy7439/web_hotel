@@ -4,134 +4,17 @@
 <meta charset="UTF-8">
 <title>예약확인/취소</title>
 <meta name="viewpory" content="width=device-width, inital-scale=1"/>
-<link rel="stylesheet" href="css/hf.css" type="text/css"/>
-<link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/>
-<link rel="stylesheet" href="css/common.css" type="text/css"/>
+<link rel="stylesheet" href="../jquery.bxslider.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/hf.css" type="text/css"/>
+<link rel="stylesheet" href="../css/mypage.css" type="text/css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../script.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="script.js"></script>
-<script src="jquery-ui.min.js"></script>
-
-<script>
-$(function(){
-	//다이얼로그 이벤트 등록
-	$("#dialogOpen").click(function(){
-		$("#dialog").dialog('open');
-	});
-	//다이얼로그 플러그인 셋팅
-	$("#dialog").dialog({
-		autoOpen : false//실행시 자동 열림설정(true, false)
-		,buttons :{
-			submit : function(){
-				
-				var date = $("#event-date").val();
-				$("#text").val(date);
-				
-				//$(".text").append("<p>"+date+":"+ name+"</p>");
-				//등록한 일정 초기화
-				
-				$("#event-date").val('');
-			},
-			reset:function(){
-				
-				$("#event-date").val('');
-			},
-			close:function(){
-				
-				$("#event-date").val('');
-				$("#dialog").dialog('close');//다이얼로그 창닫기
-			}
-		}//buttons
-		,modal: true
-		//,overly:{opacity: 0.5, background:'#000'}
-	});
-	
-	//날짜 입력박스 datepicker 셋팅
-	$("#event-date").datepicker({
-		dateFormat : 'yy년 mm월 dd일',
-		numberOfMonths : 3
-	});
-});
-
-$(function(){
-	//다이얼로그 이벤트 등록
-	$("#dialogOpen1").click(function(){
-		$("#dialog1").dialog('open');
-	});
-	//다이얼로그 플러그인 셋팅
-	$("#dialog1").dialog({
-		autoOpen : false//실행시 자동 열림설정(true, false)
-		,buttons :{
-			submit : function(){
-				
-				var date = $("#event-date1").val();
-				$("#text1").val(date);
-				
-				//$(".text").append("<p>"+date+":"+ name+"</p>");
-				//등록한 일정 초기화
-				
-				$("#event-date1").val('');
-			},
-			reset:function(){
-				
-				$("#event-date1").val('');
-			},
-			close:function(){
-				
-				$("#event-date1").val('');
-				$("#dialog1").dialog('close');//다이얼로그 창닫기
-			}
-		}//buttons
-		,modal: true
-		//,overly:{opacity: 0.5, background:'#000'}
-	});
-	
-	//날짜 입력박스 datepicker 셋팅
-	$("#event-date1").datepicker({
-		dateFormat : 'yy년 mm월 dd일',
-		numberOfMonths : 3
-	});
-});
-
-</script>
-<style>
-#menuText{width:1280px; height:800px;margin:0 auto; position:relative;bottom:-120px}
-#menuTop{width:100%; height:50px;}
-#menuTop>span{float:right}
-#profile{width:100%;padding:0 0 0 200px}
-#profileLine{width:100%;font-size:2em;
-	border-bottom:3px solid #DEB887;}
-#borderText{width:100%; 
-			padding:0 0 0 200px; margin:30px 0;
-			color:#6E6E6E;}
-
-#buttonDiv{width:100%;}			
-#buttonText{float:left}
-div>button{width:130px;height:40px;background:#DEB887;border:none;}
-.span_font{color:#fff;}
 
 
-.buttonPwd{position:relative;border:none;left:350px;top:150px}
 
-#reservation{position:relative;left:100px;}
-.button{width:60px;background:#848484;height:30px}
-.text{width:120px}
-
-#reservationList{width:100%;padding:30px 0 0 230px;}
-#boder{border-bottom:5px solid #61380B;}
-
-#checkText{border:1px solid;border-right-style:none;border-left-style:none;border-bottom-style:none;
-			word-spacing:7.5em;background:#FBF8EF;height:60px}
-#textTop{margin:15px}			
-#checkList{border:1px solid;border-right-style:none;border-left-style:none;height:90px}
-#textBottom{position:relative;top:30px}
-
-
-.btn{width:30px;height:20px;position:relative;top:-275px;left:495px}
-.btn1{width:30px;height:0px;position:relative;top:-288px;left:690px;}
-
-</style>
 </head>
 <body>
 <header>
@@ -253,8 +136,8 @@ div>button{width:130px;height:40px;background:#DEB887;border:none;}
 	</div>	
 	</div>
 	
-<div id="dialogOpen"><button class="btn"><img src="img/ca.jpg"></button></div>
-<div id="dialogOpen1"><button class="btn1"><img src="img/ca.jpg"></button></div>
+<div id="dialogOpen"><button class="btn"><img src="../img/room/ca.jpg"></button></div>
+<div id="dialogOpen1"><button class="btn1"><img src="../img/room/ca.jpg"></button></div>
 <hr/>
 
 <!-- 다이얼로그 창 -->

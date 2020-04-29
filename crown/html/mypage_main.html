@@ -2,66 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>문의내역 창</title>
+<title>마이페이지</title>
 <meta name="viewpory" content="width=device-width, inital-scale=1"/>
-<link rel="stylesheet" href="css/hf.css" type="text/css"/>
-<link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/>
-<link rel="stylesheet" href="css/common.css" type="text/css"/>
+<link rel="stylesheet" href="../jquery.bxslider.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/hf.css" type="text/css"/>
+<link rel="stylesheet" href="../css/mypage.css" type="text/css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="script.js"></script>
+<script src="../script.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="jquery-ui.min.js"></script>
 
-<script>
-$(function(){
-	//다이얼로그 이벤트 등록
-	$("#dialogOpen").click(function(){
-		$("#dialog").dialog('open');
-	});
-	//다이얼로그 플러그인 셋팅
-	$("#dialog").dialog({
-		autoOpen : false//실행시 자동 열림설정(true, false)
-		,buttons :{
-			submit : function(){
-				var name = $("#event-name").val();
-				var date = $("#event-date").val();
-				
-				$("#result").append("<p>"+date+":"+ name+"</p>");
-				//등록한 일정 초기화
-				$("#event-name").val('');
-				$("#event-date").val('');
-			},
-			reset:function(){
-				$("#event-name").val('');
-				$("#event-date").val('');
-			},
-			close:function(){
-				$("#event-name").val('');
-				$("#event-date").val('');
-				$("#dialog").dialog('close');//다이얼로그 창닫기
-			}
-		}//buttons
-		,modal: true
-		//,overly:{opacity: 0.5, background:'#000'}
-	});
-	
-	//날짜 입력박스 datepicker 셋팅
-	$("#event-date").datepicker({
-		dateFormat : 'yy년 mm월 dd일',
-		numberOfMonths : 3
-	});
-});
-
-</script>
 <style>
-#menuText{width:1280px; height:800px;margin:0 auto; position:relative;top:120px}
+#menuText{width:1280px; height:800px;margin:0 auto;position:relative;top:120px}
 #menuTop{width:100%; height:50px;}
 #menuTop>span{float:right}
-#profile{width:100%;padding:0 0 0 200px}
-#profileLine{width:100%;font-size:2em;
+#profile{width:100%;padding:0 0 0 200px;}
+#profileLine{width:50%;font-size:2em;
 	border-bottom:3px solid #DEB887;}
-#borderText{width:100%; 
+#borderText{width:100%;
 			padding:0 0 0 200px; margin:30px 0;
 			color:#6E6E6E;}
 
@@ -71,25 +30,16 @@ div>button{width:130px;height:40px;background:#DEB887;border:none;}
 .span_font{color:#fff}
 
 
-.buttonPwd{position:relative;border:none;left:350px;top:150px}
 
-#reservation{position:relative;left:200px;top:-240px}
-.button{width:60px;background:#848484;height:30px}
-.text{width:120px}
-
-#reservationList{position:relative;left:195px;top:-250px;width:1090px;padding:30px 0 0 0px;}
-#boder{border-bottom:5px solid #61380B;}
-
-#checkText{border:1px solid;border-right-style:none;border-left-style:none;border-bottom-style:none;
-			word-spacing:7.5em;background:#FBF8EF;height:60px}
-#textTop{margin:15px}			
-#checkList{border:1px solid;border-right-style:none;border-left-style:none;height:90px}
-#textBottom{position:relative;top:30px}
-
-
-
-
-
+#id{border:1px solid #DEB887;border-right-style:none;border-left-style:none;
+		border-bottom-style:none;word-spacing:4em;
+	   position:relative;top:120px;width:600px;height:50px;left:230px;}
+#pwd{border:1px solid #DEB887;border-right-style:none;border-left-style:none;
+	   position:relative;top:120px;width:600px;height:50px;left:230px;
+	   word-spacing:3em}
+#idPwd{width:100%;float:left;position:relative;top:-300px;left:-30px}
+.buttonPwd{position:relative;border:none;left:350px;top:
+150px}
 </style>
 </head>
 <body>
@@ -155,11 +105,11 @@ div>button{width:130px;height:40px;background:#DEB887;border:none;}
 </header>
 
 <section id="menuText">
-	<!-- 예약 확인 취소-->
+	<!-- my page메인화면 -->
 	<div id="menuTop">
 		<span>
-			<a href="#">
-				<b>문의내역</b>
+			<a href="profile_remake.html">
+				<b>프로필 수정</b>
 			</a> 
 		</span>
 		<span>></span>
@@ -173,13 +123,12 @@ div>button{width:130px;height:40px;background:#DEB887;border:none;}
 		</span>
 	</div>
 	<div id="profile">
-		<div id="profileLine">문의내역</div>
+		<div id="profileLine">프로필 수정</div>
 	</div>
 	<div id="borderText">
-		문의하신 내역과 답변을 보실수 있습니다.
+		안전하게 정보를 보호하기 위해 비밀번호를 다시 한번 입력해주세요.
 	</div>
-	<!-- 메뉴 -->
-	
+	<!-- 프로필 수정 -->
 	<div id="buttonDiv">
 	<div id="buttonText">
 		<div><em><b><a href="myPage.html"><span style="color:black">마이 페이지</span></a></b></em></span></div><br/>
@@ -189,35 +138,21 @@ div>button{width:130px;height:40px;background:#DEB887;border:none;}
 		<div><button><a href="inquiryhistory.html"><span class="span_font">문의내역</span></a></button></div>
 		<div><button><a href="withdrawal.html"><span class="span_font">회원탈퇴</span></a></button></div>
 	</div>
-	<!-- 객실/패키지 예약 -->
-	<div id="reservation">
-		기간조회&nbsp;&nbsp;<button class="button">전체</button>&nbsp;<input type="text" class="text"> ~ <input type="text" class="text">  <button class="button">조회</button> 
-	</div>
-	<!-- 예약 목록 -->
-	<div id="reservationList">
-		<div><em>문의내역</em></div>
-		<div id="boder"></div>
-		<div>Total : 1</div>
-		<div id="checkText">
-			<div id="textTop">
-			<b>NO 호텔 문의유형 제목 문의일자 답변여부</b>
-			</div>
-		</div>
-		<div id="checkList"> </div>
-								 
-		</div>
+	
+	<div id="idPwd">
+		<div id="id">
+		<span style="color:#6E6E6E">아이디</span>
+		<input type="text" value="dlalsgh242">
 	</div>	
+	<div id="pwd">	
+		<span style="color:#6E6E6E">비밀번호</span>
+		<input type="text">
 	</div>
-	
-<div id="dialogOpen">일정등록</div>
-<hr/>
-<div id="result">일정이 표시되는곳<br/></div>
-<!-- 다이얼로그 창 -->
-<div id="dialog" title="날짜 선택"><!-- title의 값은 일정등록창의 제목으로 사용됨-->
-	<label for="event-date">날짜선택 : </label><input type="text" id="event-date"/>
-	
-</div>
-</section>
+	<div class="buttonPwd"><button>확인</button></div>
+	</div>
+		
+	</div>
+</section>	
 
 <footer>
 <div id="homeFooter">
@@ -238,6 +173,6 @@ div>button{width:130px;height:40px;background:#DEB887;border:none;}
 
 </ul>
 </div>
-</footer>	
+</footer>
 </body>
 </html>

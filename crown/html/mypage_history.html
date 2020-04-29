@@ -2,30 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>문의내역 창</title>
 <meta name="viewpory" content="width=device-width, inital-scale=1"/>
-<link rel="stylesheet" href="css/hf.css" type="text/css"/>
+<link rel="stylesheet" href="../jquery.bxslider.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/hf.css" type="text/css"/>
+<link rel="stylesheet" href="../css/mypage.css" type="text/css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="script.js"></script>
+<script src="../script.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-<style>
-#section{background:red;height:500px;width:1000px}
-li{padding-top:10px}
-#fqa{background:green;width:800px;float:right}
-#btn{background:pink;width:200px;margin-top:100px;float:left}
-#list{background:yellow;height:100%;width:800px;float:right;}
-
-
-#a{float:left;margin-top:20px;margin-left:10px}
-#b{margin-left:40px}
-
-#fqa>span:nth-child(1){float:left}
-#fqa>span:nth-child(2){float:right;margin-right:15px}
-#fqa>span:nth-child(3){float:right;background:pink;margin-right:15px}
-</style>
-
 </head>
 <body>
 <header>
@@ -38,7 +24,7 @@ li{padding-top:10px}
 	           <img src="img/1010.jpg"/>
 	      	</ul>
 	      </li>
-	    <li><a href="hotel_roomMain.html">ROOM</a>
+	       <li><a href="hotel_roomMain.html">ROOM</a>
 	         <ul>
 	           <li><h2>ROOM</h2></li>
 	           <li><a href="standard_room.html">STANDARD</a></li>
@@ -89,25 +75,70 @@ li{padding-top:10px}
 	</ul>
 </header>
 
-<section id="section">
-	
-	<div id="fqa">
-		<span id="1">FQA</span>
-		<span id="2">검색명</span>
-		<span id="3">클릭</span>
+<section id="menuText">
+	<!-- 예약 확인 취소-->
+	<div id="menuTop">
+		<span>
+			<a href="#">
+				<b>문의내역</b>
+			</a> 
+		</span>
+		<span>></span>
+		<span style="color:black">
+			<a href="#">
+			my page</a>
+		</span>
+		<span>></span>
+		<span style="color:black">
+			<a href="#">홈</a>
+		</span>
 	</div>
-	<div id="btn"><button>자주하는 질문</button></div>
-	<div id="list">리스트
-		<div id="a">
-		<span>질문유형</span>
-		<input type="text" id="b">
+	<div id="profile">
+		<div id="profileLine">문의내역</div>
+	</div>
+	<div id="borderText">
+		문의하신 내역과 답변을 보실수 있습니다.
+	</div>
+	<!-- 메뉴 -->
+	
+	<div id="buttonDiv">
+	<div id="buttonText">
+		<div><em><b><a href="myPage.html"><span style="color:black">마이 페이지</span></a></b></em></span></div><br/>
+		<div><button><a href="profile_remake.html"><span class="span_font">프로필 수정</span></a></button></div>
+		<div><button><a href="reservation.html"><span class="span_font">예약확인/취소</span></a></button></div>
+		<div><button><a href="change_password.html"><span class="span_font">비밀번호 변경</span></a></button></div>
+		<div><button><a href="inquiryhistory.html"><span class="span_font">문의내역</span></a></button></div>
+		<div><button><a href="withdrawal.html"><span class="span_font">회원탈퇴</span></a></button></div>
+	</div>
+	<!-- 객실/패키지 예약 -->
+	<div id="reservation">
+		기간조회&nbsp;&nbsp;<button class="button">전체</button>&nbsp;<input type="text" class="text"> ~ <input type="text" class="text">  <button class="button">조회</button> 
+	</div>
+	<!-- 예약 목록 -->
+	<div id="reservationList">
+		<div><em>문의내역</em></div>
+		<div id="boder"></div>
+		<div>Total : 1</div>
+		<div id="checkText">
+			<div id="textTop">
+			<b>NO 호텔 문의유형 제목 문의일자 답변여부</b>
+			</div>
 		</div>
+		<div id="checkList"> </div>
+								 
+		</div>
+	</div>	
 	</div>
 	
+<div id="dialogOpen">일정등록</div>
+<hr/>
+<div id="result">일정이 표시되는곳<br/></div>
+<!-- 다이얼로그 창 -->
+<div id="dialog" title="날짜 선택"><!-- title의 값은 일정등록창의 제목으로 사용됨-->
+	<label for="event-date">날짜선택 : </label><input type="text" id="event-date"/>
 	
-
+</div>
 </section>
-
 
 <footer>
 <div id="homeFooter">

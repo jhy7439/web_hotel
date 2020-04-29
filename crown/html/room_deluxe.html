@@ -4,77 +4,19 @@
 <meta charset="UTF-8">
 <title>디럭스룸</title>
 <meta name="viewpory" content="width=device-width, inital-scale=1"/>
-<link rel="stylesheet" href="jquery.bxslider.min.css" type="text/css"/>
+<link rel="stylesheet" href="../jquery.bxslider.min.css" type="text/css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="stylesheet" href="css/hf.css" type="text/css"/>
+<link rel="stylesheet" href="../css/hf.css" type="text/css"/>
+<link rel="stylesheet" href="../css/room.css" type="text/css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="script.js"></script>
+<script src="../script.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="jquery.easing.1.3.js"></script>
-<script src="jquery.bxslider.min.js"></script>
+<script src="../jquery.bxslider.min.js"></script>
 
-<script>
-$(function(){
-	$("#slider").bxSlider({
-		mode: 'horizontal',
-	slideWidth:1280, //슬라이드 폭
-	slideHeight:400,//슬라이드 높이
-	speed:2000,//변환속도
-	auto: true, //자동시작(true, false)
-	randomStart : true, //시작 슬라이드랜덤
-	infiniteLoop:false,//반복여부 true, false
-	hideControlOnEnd:true//처음과 마지막 컨트롤러 표시여부 true,false
-	});
-});
-</script>
-<style>
-	#main{width:1280px; height:2400px;margin:0 auto;padding:300px 0 0 0}
-	#firstDiv{float:left;width:1280px}
-	#text{float:left;position:relative;left:90px;top:40px;}
-	#reservation{float:left;position:relative;left:480px;top:40px}
-	#buttonDiv{float:left;position:relative;left:210px;top:-60px;}
-	button{width:180px;height:40px;background:#DEB887;border:none;}
-	#text1{font-size:2em;}
-	.text2{font-size:0.8em;}
-	
-	#roomText{position:relative;text-align:center}
-	#roomName{position:relative;text-align:center;top:10px;font-size:2em}
-	#suiteRoom{position:relative;top:-50px}
-	/*화살표 이미지*/
-	#left{position:relative;left:35%;top:-5px;width:50px;}
-	#right{position:relative;left:60%;top:-100px;width:50px}
-	
-	#imgDiv>img{position:relative;top:10px;display:block;margin:0 auto;width:1280px;height:300px;}
-	#seocondDiv{position:relative;top:120px;}
-	#viewImg{position:relative;left:90px;float:left}
-	#viewImg img{width:790px;height:370px}
-	#viewText{position:relative;left:130px;float:left;top:50px;font-style:italic;}
-	
-	
-	#textBox{position:relative;top:600px;}
-	#information{position:relative;top:70px;right:50px;height:300px;font-size:2.5em}
-	#badagImg{position:relative;left:-450px;top:-140px;}
-	#badagImg img{height:172px;width:291px}
-	#informationText{position:relative;top:-330px;left:900px}
-	
-	#amenitiesMain{position:relative;top:300px;background:#E6E6FA;width:100%;height:200px}
-	#amenities{position:relative;left:200px;top:70px}
-	#service{position:relative;left:750px;top:-90px}
-	#listText{position:relative;left:330px}
-	#serviceText{position:relative;left:870px;top:-150px}
-	
-	
-	.img{position:relative;background-image:url(img/restauran.jpg);width:700px;height:150px;top:350px;
-		 left:300px}
-	 #textImg{position:relative;top:50px;left:20px;font-size:1.5em;color:white}
-	 #buttonMore{position:relative;left:550px;top:-10px}
-	 #buttonMore>button{width:80px;background:#F7F2E0}
-	 #faqText{position:relative;top:420px;text-align:center}
-	 
-	 
-	 /*이미지 슬라이드*/
-	#slider img{width:1280px;height:300px;}
-</style>
+
+
+
+
 </head>
 <body>
 <header>
@@ -87,12 +29,12 @@ $(function(){
 	           <img src="img/1010.jpg"/>
 	      	</ul>
 	      </li>
-	      <li><a href="hotel_roomMain.html">ROOM</a>
+	      <li><a href="room_main.html">ROOM</a>
 	         <ul>
 	           <li><h2>ROOM</h2></li>
-	           <li><a href="standard_room.html">STANDARD</a></li>
-	           <li><a href="deluxe_room.html">DELUX</a></li>
-	           <li><a href="suite_room.html">SUITE</a></li>
+	           <li><a href="room_standard.html">STANDARD</a></li>
+	           <li><a href="room_deluxe.html">DELUX</a></li>
+	           <li><a href="room_suite.html">SUITE</a></li>
 	           <img src="img/1010.jpg"/>
 	         </ul>
 	      </li>
@@ -142,16 +84,17 @@ $(function(){
 <!-- 첫번쨰 -->
 	<div id="roomText">ROOMS > 일반객실안내 > <b>deluxe</b></div>
 	<div id="roomName">
-		<div id="left"><a href="standard_room.html"><img src="img/1.jpg"/></a></div>
+		<div id="left"><a href="room_standard.html"><img src="../img/room/1.jpg"/></a></div>
 		<span id="suiteRoom">DELUXE ROOM</span>
-		<div id="right"><a href="suite_room.html"><img src="img/2.jpg"/></a></div>
+		<div id="right"><a href="room_suite.html"><img src="../img/room/2.jpg"/></a></div>
 	</div>
 	
 	<!-- 슬라이드 효과 -->
 	<ul id="slider">
-		<li><a href="#"><img src="img/deluxe1.jpg"/></a></li>
-		<li><a href="#"><img src='img/deluxe2.jpg'/></a></li>
-		<li><a href="#"><img src='img/deluxe3.jpg'/></a></li>
+	
+		<li><a href="#"><img src="../img/room/deluxe1.jpg"/></a></li>
+		<li><a href="#"><img src='../img/room/deluxe2.jpg'/></a></li>
+		<li><a href="#"><img src='../img/room/deluxe3.jpg'/></a></li>
 	</ul>
 	
 	<div id="firstDiv">	
@@ -163,7 +106,7 @@ $(function(){
 	</div>
 <!-- 두번쨰 -->
 	<div id="seocondDiv">
-		<div id="viewImg"><img src="img/deluxe5.jpg"/></div>
+		<div id="viewImg"><img src="../img/room/deluxe5.jpg"/></div>
 		<div id="viewText"><b>아름다운 한강뷰</b><br/><br/>
 		도심 속 넓게 자리잡은 선릉의 평화로운 풍경과<br/>
 		화려한 야경을 동시에 만날 수 있는 파크 뷰 룸에서 <br/>
@@ -172,7 +115,7 @@ $(function(){
 <!-- 세번쨰 -->
 	<div id="textBox">
 		<div id="information">INFORMATION</div>
-		<div id="badagImg"><img src="img/deluxe4.jpg"/></div>
+		<div id="badagImg"><img src="../img/room/deluxe4.jpg"/></div>
 		<div id="informationText"><span style="font-size:1.5em">15:00~13:00</span><br/>
 				 <mark>Check-in~Check-out</mark><br/><br/>
 				 <em>객실크기</em> <b>61m²</b><br/>
