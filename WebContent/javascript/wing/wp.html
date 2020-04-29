@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#MainDiv {
+	width:100%;
+	height: 1500px;
+}
+
+#Line {
+	border: 1px gray solid;
+	height: 10px
+}
+
+#windowImg1 {
+	height:500px;
+	width:180px;
+	text-align: center;
+	float:left
+}
+
+#windowImg1>img {
+	height: 400px;
+	width: 300px;
+}
+
+#windowImg2 {
+	margin-top: 10px;
+	height: 100%;
+	text-align: center
+}
+
+#windowImg2>img {
+	width: 1600px
+}
+
+#modal {
+	overflow:hidden;
+	background-size:100% 100%;
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+
+}
+#wing{position:absolute;}
+h2{z-index:10;text-align:center;font-size: 100px;color: yellow}
+</style>
+<script>
+	var imgList = [ '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg',
+			'7.jpg' ]
+	function image() {
+
+		var imgTag = "";
+		for (idx = 0; idx < imgList.length; idx++) {
+			imgTag += "<img src='" + imgList[idx] + "' onclick='modal(" + idx
+					+ ")'/>";
+
+		}
+		document.getElementById("windowImg1").innerHTML = imgTag;
+	}
+
+	function modal(idx) {
+
+		document.getElementById("modal").style.display = "block";
+		document.getElementById("MainDiv").style.display = "none";
+		document.getElementById("modal").style.backgroundImage = "url(" + idx+ ".jpg)";
+		document.getElementById("modal").style.backgroundRepeat = "no-repeat";
+		document.getElementById("modal").style.backgroundSize = "100% 100%";
+
+	}
+	function modalClose(){
+		document.getElementById("modal").style.display="none";
+		document.getElementById("MainDiv").style.display = "block";
+	}
+	function setXY(){
+		document.getElementById("wing").style.left = "0px";
+		document.getElementById("wing").style.top = "0px";
+	}
+	var stepX=5;
+	var stepY=5;
+	var X=0;
+	var Y=0;
+	function move(){
+		
+		document.getElementById("wing").style.left = X+"px";
+		document.getElementById("wing").style.top = Y+"px";
+		X+=stepX;
+		Y+=stepY;
+		
+		if(X>this.innerWidth-687){
+			stepX=-5;
+		}else if(X<0){
+			stepX=5;
+		}if(Y>this.innerHeight-233){
+			stepY=-5;
+		}else if(Y<0)
+			stepY=5;
+		}
+		
+	
+</script>
+</head>
+<body onload="image(); setXY(); setInterval(move,30)"onkeypress="modalClose()">
+	<div id="MainDiv">
+		<div id="windowImg1"></div>
+		<div id="Line"></div>
+		<div id="windowImg2">
+			<img src="4.jpg" /><br /> <img src="3.jpg" />
+		</div>
+	</div>
+	<div id="modal">
+	<h2>아무키나 입력하시면 화면보호기가 닫힙니다</h2>
+	<img src = "wingani.gif" id= "wing"/>
+	</div>
+</body>
+</html>

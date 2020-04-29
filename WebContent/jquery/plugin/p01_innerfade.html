@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	https://gist.github.com/coolniikou/665255
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="jquery.innerfade.js"></script>
+<style>
+	ul,li{margin:0;padding:0;list-style-type:none}
+	#innerImg img{width:500px;height:350px}
+	
+	div{height:350px}
+	div:nth-child(2){height:200px;width:500px;border:2px solid gray;background:lightblue;
+			  font-size:1.5em}
+		  
+</style>
+<script>
+	$(function(){
+		//이미지에 innerfade적용
+		$("#innerImg").innerfade({
+			animationtype:'slide' // 'slide', 'fade',  기본:'fade'
+			,speed:'slow'  //'slow','normal','fast',밀리초
+			,timeout: 5000 //쇼 대기시간
+			,type:'random'	//random, sequence(기본:순차적으로), random_start
+		});
+		
+		//텍스트에 innerfade적용
+		$("#innerTxt").innerfade({
+			animationtype:'slide',
+			speed:2000,
+			timeout:5000,
+			type:'sequence'
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<ul id="innerImg">
+		<li><a href="https://www.nate.com"><img src='../../img/img1.png'/></a></li>
+		<li><a href="https://www.naver.com"><img src='../../img/img2.png'/></a></li>
+		<li><a href="https://www.daum.net"><img src='../../img/img3.png'/></a></li>
+		<li><a href="https://www.seoul.go.kr"><img src='../../img/img4.png'/></a></li>
+		<li><a href="https://www.nate.com"><img src='../../img/img5.png'/></a></li>
+		<li><a href="#"><img src='../../img/wine1.jpg'/></a></li>
+		<li><a href="#"><img src='../../img/wine2.jpg'/></a></li>
+		<li><a href="#"><img src='../../img/wine3.jpg'/></a></li>
+	</ul>
+</div>
+<div>
+	<ul id="innerTxt">
+		<li>총선을 마친 여야는 17일 일제히 선거대책위원회 해단식을 열고 선거 체제를 마무리했다. 압승을 거둔 더불어민주당은 </li>
+		<li>'겸손'을 강조하며 더욱 몸을 낮췄고, 참패한 미래통합당은 '국민의 회초리를 맞겠다'며 거듭 고개를 숙였다</li>
+		<li>여당인 민주당은 이날 오전 서울 여의도 당사에서 자신들이 참여한 비례연합정당인 더불어시민당과의 합동 선대위 </li>
+		<li>해단식을 가졌다. 180석이라는 '100년에 한번 있을까 말까한' 성적표를 받은 민주당은 승리의 기쁨을 나누면서도, '오만은 금물'이라며 자중했다. </li>
+		<li>이해찬 대표는 "이번 총선에서 국민들로부터 성원을 받았고, 그 큰 성원에 깊이 감사드리는 동시에 우리 양당(민주당·시민당)은 그 성원에 보답하는 막중한 책임감을 가져야 하겠다"고 당부했다. </li>
+		<li>이 대표는 "정치하면서 제일 중요한 것이 어항 속에서 살고 있다고 생각해야 하는 것"이라며 "당선되자마자 </li>
+		<li>'나는 지나가는 손님 누구나 볼 수 있는 어항 속에서 투명하게 살고 있다'고 생각하는 것이 공직자의 도리라 생각해야 한다"고 거듭 당 분위기를 다잡았다. </li>
+		<li>아울러 "열린우리당의 아픔을 우리는 깊이 반성해야 한다"고도 했다. 열린우리당 당시 과반 획득 뒤 잦은 분열과 구설로 대선 패배와 두 자릿수 의석으로의 추락이라는 경험을 '반면교사'삼아 오만하</li>
+	</ul>
+</div>
+</body>
+</html>

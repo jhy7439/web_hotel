@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#result{font-size:2em}
+</style>
+<script>
+	function hap(a, b){
+		var r = a + b;
+		document.getElementById("result").innerHTML= a+"+"+b+"="+r;
+	}
+	function cha(x, y){
+		var r = x -y;
+		document.getElementById("result").innerHTML = x+"-"+y+"="+r;
+		
+	}
+</script>
+</head>
+<body>
+<input type="button" value="합" onclick="hap(58,90)"/>
+<input type="button" value="차" onclick="cha(95,60)"/><br/>
+<img src="../img/img1.png"/>
+</body>
+</html>

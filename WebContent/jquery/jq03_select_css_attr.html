@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//실행문
+		//jquery에서 선택자 : 태그,아이디, 클래스
+		//jquery에서 스타일시트 사용
+		//태그선택자		속성:background-image backgroundImage
+		$("h1").css("border","1px solid gray");
+		$(".c1").css("background-color","lightblue");
+		$("#t1").css("color","blue").css("background-color","yellow");
+		
+		//속성적용하기 -> html 속성이 속성:속성값,
+		$("img").attr("width","100%").attr("src","../img/img2.png");
+		//속성만 있는 경우(readonly,checked,selected,disabled,....)
+		$("#txt").prop("readonly",true);
+	});
+</script>
+</head>
+<body>
+<input type="text" id="txt"/>
+<h1 class="c1">JQuery에서 선택자 사용하기</h1>
+<h1 id="t1">JQuery에서 아이디 선택자 사용하기</h1>
+<h1 calss="c1">JQuery에서 클래스 선택자 사용하기</h1>
+<img src="../img/img1.png"/>
+</body>
+</html>

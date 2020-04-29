@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스틸하우스</title>
+<style>
+	body{background:#92cc65}
+	ul,li{margin:0;padding:0;list-style-type:none}
+
+	#mainDiv{width:1060px;margin:0 auto;background:#fff}
+	#banner{height:334px;padding-left:165px}
+	#navi{height:72px}
+	/*banner*/
+	#banner2{height:105px; padding-left:165px}
+	/*menu*/
+		#navi a:link{text-decoration:none; color:#fff}
+		#navi a:visited{text-decoration:color:#fff}
+		#navi a:hover{text-decoration:none; color:red}
+	
+		#navi>img, #navi>ul, #navi li{float:left}
+		#navi>ul{width:835px; height:72px; background:#63bb27}
+		#navi li{width:20%;text-align:center;line-height:72px; font-size:1.0em;font-weight:bold}
+	/*section*/	
+	section>div{float:left}
+		section>div:first-of-type{width:375px; padding-left:165px}
+		section>div:last-of-type{width:375px; padding-left:88px}
+		
+		#news>li{border:2px solid gray;padding:5px;margin:15px 0}
+		#news a:link{text-decoration:none; color:#555}
+		#news a:visited{text-decoration:none; color:#555}
+		#news a:hover{text-decoration:none; coloe:#000}
+	/*footer*/
+		footer{padding:165px}	
+</style>
+</head>
+<body>
+<div id="mainDiv">
+	<header id="banner">
+		<script>
+			for(i=2; i<=6; i++){
+				document.write("<img src='../img2/css_gaon_0"+i+".jpg'/>");
+			}
+		</script>
+	</header>
+	
+	
+	<nav id="navi">
+		<img src="../img2/css_gaon_08.jpg"/>
+		<ul>
+			<script>
+				var menu=["COMPANY","STEELHOUSE","ARCHITECTURE","INTERIOR","COMMUNITY"];
+				for(i=0; i<menu.length; i++){
+					document.write("<li><a href='#'>"+menu[i]+"</a></li>");
+				}
+			</script>
+		</ul>
+	</nav>
+	
+	<div id="banner2">
+		<script>
+			for(i=15; i<=19; i++){
+				document.write("<img src='../img2/css_gaon_"+i+".jpg'/>");
+			}
+		
+		</script>
+	
+	</div>
+	
+	<section>
+		<div>
+			<img src="../img2/css_gaon_22.jpg"/><br/>
+			<ul id="news">
+				<li>01. <a href="#">자주하시는 질문</a></li>
+				<li>02. <a href="#"> 질문과 답변</a></li>
+				<li>03. <a href="#">채용안내</a></li>
+			
+			</ul>
+		</div>
+		<div>
+			<img src="../img2/css_gaon_24.jpg"/>
+			<img src="../img2/css_gaon_27.jpg"/>
+			<img src="../img2/css_gaon_30.jpg"/>
+			
+		</div>
+	
+	</section>
+	
+	<footer><img src="../img2/css_gaon_31.jpg"/></footer>
+</div>
+</body>
+</html>

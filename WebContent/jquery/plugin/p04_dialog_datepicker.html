@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jquery ui
+	1. jquery-ui.css
+	2. jquery
+	3. jquery-ui.js
+ -->
+<link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/>
+<style>
+	#dialogOpen{font-size:2em; background-color:#ffd; text-align:center; width:600px;
+			    margin:0 auto}
+	#result{background-color:#fdf;width:600px;margin:0 auto;fone-size:1.5em;
+			text-align:center}
+	h1{text-align:center}
+	input[type=text], label{margin-bottom:12px; padding:5px; width:95%}				    
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script>
+	$(function(){
+		//다이얼로그 이벤트 등록
+		$("#dialogOpen").click(function(){
+			$("#dialog").dialog('open');
+		});
+		//다이얼로그 플러그인 셋팅
+		$("#dialog").dialog({
+			autoOpen : false//실행시 자동 열림설정(true, false)
+			,buttons :{
+				submit : function(){
+					var name = $("#event-name").val();
+					var date = $("#event-date").val();
+					
+					$("#result").append("<p>"+date+":"+ name+"</p>");
+					//등록한 일정 초기화
+					$("#event-name").val('');
+					$("#event-date").val('');
+				},
+				reset:function(){
+					$("#event-name").val('');
+					$("#event-date").val('');
+				},
+				close:function(){
+					$("#event-name").val('');
+					$("#event-date").val('');
+					$("#dialog").dialog('close');//다이얼로그 창닫기
+				}
+			}//buttons
+			,modal: true
+			//,overly:{opacity: 0.5, background:'#000'}
+		});
+		
+		//날짜 입력박스 datepicker 셋팅
+		$("#event-date").datepicker({
+			dateFormat : 'yy년 mm월 dd일',
+			numberOfMonths : 3
+		});
+	});
+</script>
+</head>
+<body>
+<div id="dialogOpen">일정등록</div>
+<hr/>
+<div id="result">일정이 표시되는곳<br/></div>
+<!-- 다이얼로그 창 -->
+<div id="dialog" title="JQuery UI Dialog"><!-- title의 값은 일정등록창의 제목으로 사용됨-->
+	<h1>일정을 등록하세요..</h1>
+	<label for="event-name">일정이름 : </label><input type="text" id="event-name"/>
+	<label for="event-date">날짜선택 : </label><input type="text" id="event-date"/>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width:100px; height:100px}
+	ul,li{margin:10px;list-style-type:none;border:1px solid gray; float:left;padding:5px}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//before() :선택자 이전에 객체 추가
+		$("#img").before("<li><img src='../img/img2.png'/></li>");
+		//insertBefore() : 선택자의 이전에 객체 추가 -> 내용.insertBefore(선택자)
+		$("<li>insertBefore()</li>").insertBefore("#img");
+		
+		//after() : 선택자 다음에 객체 추가
+		$("#img").after("<li><img src='../img/img3.png'/><li>");
+		//insertAfter() : 선택자 다음에 객체 추가 -> 내용,insertAfter(선택자)
+		$("<li>insertAfter</li>").insertAfter("#img");
+		
+		
+		//append() : 선택자 안에 마지막에 객체추가 -> 선택자.append(내용)
+		//appendTo() : 선택자 안에 마지막에 객체추가 -> 내용.appendTo(선택자)
+		
+		//prepend() : 선택자의 안에 제일 처음에 추가
+		$("#img").prepend("<img src='../img/img4.png'/>");
+		//prependTo() :선택자 안에 제일 처음에 추가
+		$("<li><img src='../img/img5.png'/></li>").prependTo("ul");
+		
+		//clone() : 선택자를 복사한다. -> 한번만 사용가능하다.
+		var imgClone = $("#copy").clone();
+		imgClone.attr("id","copy2");//아이디를 변경한다.
+		
+		$("ul").prepend(imgClone);
+		
+		// empty() : 선택자의 내용만 지우기
+		$("#copy").empty();
+		// remove() : 선택자와 내용이 지워진다.
+		$("#copy2").remove();
+		
+		//replaceAll() : 선택자의 객체를 치환
+		$("<li id='txt'>ReplaceAll()<hr/>내용바꾸기</li>").replaceAll("#img");
+		
+		//replaceWith() : 선택자의 객체를 치환
+		$("#txt").replaceWith("<h1>Replacewidth()<h1/>");
+	});
+</script>
+</head>
+<body>
+<ul>
+	<li id="img"><img src="../img/img1.png"/></li>
+</ul>
+</body>
+</html>

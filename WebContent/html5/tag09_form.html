@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function chk(){
+		alert("자바스크립트 호출됨...");
+		//검사
+		//return true;
+		document.member.submit();// submit을 자바스크립트에서 발생시킨다.
+	}
+
+</script>
+</head>
+<body>
+<a href="../index.html?mid=0200">홈으로</a>
+<!-- input: 한줄의 text, radio button, checkbox, button, reset,password -->
+<!-- method : 전송방식 (get:변수와 값이 주소표시줄에 표시 , post:전송하는 변수와 값을 숨겨보낸다.)
+	 action : 현재 폼이 submit이 발생할떄 호출할 서버페이지의 파일명
+	 name : form명
+	 type : 현재폼이 파일업로드의 기능을 가질떄 표시 type="multipart/form-data"
+
+ -->
+<!-- <form name="member" method="post" action="aaa.jsp" onsubmit="return chk()"> -->
+<form name="member">
+	<label>아이디 : <input type ="text" name="username" value="홍길동" maxlength="10" placeholder="아이디 or 이메일" required/><br/>
+	이름 : <input type="text" name="username" size="10"/><br/>
+	비밀번호 : <input type="passsword" name= "userpwd"/><br/>
+	파일첨부 : <input type="file" name= "filename"/><br/>
+	체크박스 : <input type="checkbox" name= "hobby" value="등산">등산
+			 <input type="checkbox" name= "hobby" value="쇼핑" checked>쇼핑
+			 <input type="checkbox" name= "hobby" value="독서">독서<br/>
+	Radio버튼:<input type="radio" name="gender" value="M" checked/> 남
+			 <input type="radio" name="gender" value="F"/> 여<br/>
+	여러줄의 텍스트 입력 박스:<br/>
+	<textarea name="memo" rows="5" cols="40">입력글을 표시하는곳</textarea><br/>
+	리스트박스: <select name="interest" size="1" multiple>
+					<option value="독서">독서</option>
+					<option value="영화감상">영화감상</option>
+					<option value="달리기" selected>달리기</option>
+					<option value="싸이클">싸이클</option>
+			  </select><br/>
+	리스트 group :<select>
+					<optgroup label="프론트엔드">
+						<option value="html/css">html/css</option>
+						<option value="javascript">자바스크립트</option>
+						<option value="jquery">제이쿼리</option>
+					</optgroup>
+					<optgroup label="백엔드">	
+						<option value="java">자바</option>
+						<option value="jsp">JSP</option>
+						<option value="spring">스프링프레임워크</option>
+					</optgroup>
+				</select><br/>
+				
+	<!-- 폼이 submit발생하여야 서버에서 데이터를 가져갈수 있다. 
+		formaction : submit발생시 호출파일명
+		formmathod : 전송방식
+		formtarget : 다음실행하는 파일이 새창에서 실행된다.
+	-->
+	<input type="submit" value="전송" formaction="bbb.jsp" formmethod="get" formtarget="_blank"
+			formtype="multipart/form-data"/>
+	<input type="button" value="전송" onclick="chk()"/>
+	<!-- <input type="image" src="../img/Lighthouse.jpg"/>-->
+	<input type="reset" value="새로고침"/><br/>
+	
+	<!-- date,datetime,datetime-local, month, week, time -->
+	<input type= "date" name="date1"/><br/>
+	<input type= "datetime-local" name="date2"/><br/>
+	<input type= "month" name="date3"/><br/>
+	<input type= "week" name="date4"/><br/>
+	<input type= "time" name="date5"/><br/>
+	<input type= "color" name="color"/><br/>
+	<input type= "number" name="num" step="3"/><br/>
+	<input type= "range" name="range" min="1" max="10"/><br/>			
+</form>
+</body>
+</html>

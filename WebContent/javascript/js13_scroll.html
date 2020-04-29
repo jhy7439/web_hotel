@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function scrollMove(){
+		//		  x : 좌우	y: 위아래
+		//window.scrollBy(x,y)
+		//window.scrollTo(x,y);
+		
+		window.scrollTo(0,500);
+		window.scrollBy(0,500);
+	}
+</script>
+</head>
+<body onload="scrollMove()">
+<script>
+	for(i=1; i<=5; i++){
+		document.write('<img src="../img/img'+i+'.png"/><br/>');
+	}
+
+</script>
+</body>
+</html>

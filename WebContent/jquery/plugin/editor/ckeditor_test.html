@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+	$(document).ready(function(){
+		CKEDITOR.replace('content');
+		
+		$("#btn").click(function(){
+			alert(CKEDITOR.instances.content.getData());
+		});
+		
+	});
+</script>
+</head>
+<body>
+<form name="frm" method="get">
+<textarea name="content" id="content"></textarea>
+<input type="button" value="클릭" id="btn">
+</form>
+</body>
+</html>

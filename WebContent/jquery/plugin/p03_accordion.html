@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	https://github.com/alaingoga에서 다운로드
+	
+	1. accordionImageMenu.css
+	2. jquery
+	3. jquery ui
+	4. accordionImageMenu.js
+ -->
+ <link rel="stylesheet" href="accordionImageMenu.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
+<script src="jquery.accordionImageMenu.js"></script>
+<script>
+	$(function(){
+		$("#accordion").AccordionImageMenu({
+			position:'horizontal'  //horizontal, vertical
+			,openItem: 3//기본선택목록,index위치의 목록이 크게보임
+			,openDim:500//확장된 목록 크기
+			//,closeDim:2100//닫힌 목록의 크기
+			//,width, height
+			//,width:1200 //vertical일떄 적용
+			,height:100 //horizontal일떄 적용
+			,duration:2000//전환속도
+			,effect:"easeOutBounce"//easing
+			,border:2
+			,color:'red'
+		});
+	});
+</script>
+</head>
+<body>
+<!-- ul태그에 생성한다. -->
+<ul id="accordion">
+	<li><a href="#"><img src='../../img/img1.png'/></a>
+	<li><a href="#"><img src='../../img/img2.png'/></a>
+	<li><a href="#"><img src='../../img/img3.png'/></a>
+	<li><a href="#"><img src='../../img/img4.png'/></a>
+	<li><a href="#"><img src='../../img/img5.png'/></a>
+	<li><a href="#"><img src='../../img/img6.png'/></a>
+</ul>
+</body>
+</html>

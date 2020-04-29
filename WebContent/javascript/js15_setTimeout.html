@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{font-size:5em}
+</style>
+<script>
+	/* setTimeout() : 함수를 재호출*/
+	var num=1;
+	function startNum(){
+		document.getElementById("txt").innerHTML= num+"";
+		//			호출할 함수명, 시간(초)
+		var time = setTimeout("startNum()",1000);
+		if(num==10){
+			clearTimeout(time);
+			
+		}
+		num++;
+	}
+	
+</script>
+</head>
+<body onload="startNum()">
+<div id="txt"></div>
+
+</body>
+</html>

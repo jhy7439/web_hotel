@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var cnt = 0;
+	function viewMove(){
+		window.scrollBy(0,10);
+		
+		//interval중지 시키기
+		cnt++;
+		if(cnt>10){
+			clearInterval(interval);
+		}
+	}
+	var interval;
+	function startScroll(){
+		//setInterval() 함수를 이용하여 다른 함수 호출한다.
+		//			호출할 함수 	시간간격(밀리초)
+		interval = setInterval("viewMove()", 500);
+	}
+</script>
+</head>
+<body onload="startScroll()">
+<h1>setInterval :일정한 시간 간격으로 함수를 호출한다.</h1>
+<script>
+	for(i=1; i<=5; i++){
+		document.write('<img src="../img/img'+i+'.png"/><br/>');
+	}
+
+</script>
+</body>
+</html>

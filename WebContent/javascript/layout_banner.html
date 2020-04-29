@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+	body{margin:0px}
+	#top1, #top2, #content{
+		width:800px; margin:0 auto
+	}
+	#top1, #top2{
+		height:100px
+	}
+	#top1{
+		background-color:lightblue;
+	}
+	#top2{
+		background-color:pink;
+	}
+	#bar{
+		height:3px;background-color:blue;position:relative;
+		z-index:100;
+	}
+	#content{
+		position:relative; 
+		left:50%; margin-left:-400px;
+	}
+	#content>img{
+		width:100%
+	}
+	#leftBanner{width:100px;height:300px;background-color:yellow;
+	            position:absolute;top:0px;left:-100px}
+	#rightBanner{width:100px;height:400px;position:absolute;top:0px;left:800px;
+				background-color:orange}
+				
+	#txt{width:500px;font-size:2em}
+</style>
+<script>
+	//텍스트 타이핑
+	var txt = "자바스크립트로 레이아웃 연습중";
+	var idx = 1;
+	function textTyping(){
+		var showTxt = txt.substring(0, idx++);
+		document.getElementById("txt").placeholder = showTxt;
+		if(idx>txt.length){
+			idx=1;
+		}
+	}
+	function bannerMove(){
+		var scrollTop= window.scrollY; //스크롤바 위치
+		var top =200;
+		if(document.getElementById("top1").style.display=="none"){
+			top=100;
+		}
+		if(scrollTop>200){
+			document.getElementById("bar").style.top = scrollTop-200+"px";
+			document.getElementById("leftBanner").style.top = scrollTop-200+"px";//배너위치 설정
+			document.getElementById("rightBanner").style.top = scrollTop-200+"px";
+		}else{
+			document.getElementById("bar").style.top = "0px"
+			document.getElementByid("leftBanner").style.top = "0px"
+			document.getElementByid("rightBanner").style.top = "0px"
+		}
+	}
+</script>
+</head>
+<body onload="setInterval('textTyping()',500);" onscroll="bannerMove()">
+<div id="top1" onclick="this.style.display='none'"></div><!-- top -->
+<div id="top2">
+	<input type="text" id="txt"/>
+</div>
+<div id="bar"></div>
+<div id="content">
+	<img src="../img/img1.png"/>
+	<img src="../img/img2.png"/>
+	<img src="../img/img3.png"/>
+	<div id="leftBanner">aa</div>
+	<div id="rightBanner">bbb</div>
+</div>
+</body>
+</html>

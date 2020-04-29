@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>룸 메인 페이지</title>
+<meta name="viewpory" content="width=device-width, inital-scale=1"/>
+<link rel="stylesheet" href="accordionImageMenu.css" type="text/css"/>
+<link rel="stylesheet" href="css/hf.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<script src="jquery.accordionImageMenu.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<style>
+	#imgDiv>img{width:100%;height:100px;}
+	#imgDiv{width:100%;height:720px}
+	#eventText{width:1280px;height:130px;position:relative;left:170px;
+			   text-top:10px;text-align:center;z-index:1;}
+
+	#accodion>li>img{width:500px}
+	
+	.image_hover img {
+   transition:0.3s;
+}
+	.image_hover:hover img {
+    transform:scale(1.2);
+}
+	#imgHover{width:100%}
+	#standardMain{width:425px;height:425px;position:relative;left:200px;z-index:1}
+	#deluxeMain{width:425px;height:425px;position:relative;top:-429px;left:560px;}
+	#suiteMain{width:425px;height:425px;float:right;position:relative;top:-858px;right:200px;}	
+	#standardText{position:relative;left:210px;top:-490px;z-index:1;font-size:2em}
+	#deluxeText{position:relative;left:480px;top:-490px;z-index:1;font-size:2em}
+	#suiteText{position:relative;left:820px;top:-490px;z-index:1;font-size:2em}
+	
+	#homeFooter{position:relative;top:-350px}
+</style>
+</head>
+<body>
+<header>
+	<ul id="menubar">
+		
+	      <li><a href="#">EVENT</a>
+	      	<ul>
+	      	  <li><h2>EVENT</h2></li>
+	           <li><a href="#">EVENTMAIN</a></li>
+	           <img src="img/1010.jpg"/>
+	      	</ul>
+	      </li>
+	      <li><a href="hotel_roomMain.html">ROOM</a>
+	         <ul>
+	           <li><h2>ROOM</h2></li>
+	           <li><a href="standard_room.html">STANDARD</a></li>
+	           <li><a href="deluxe_room.html">DELUX</a></li>
+	           <li><a href="suite_room.html">SUITE</a></li>
+	           <img src="img/1010.jpg"/>
+	         </ul>
+	      </li>
+	      <li><a href="#">RESTAURANTS</a>
+	       <ul>
+	           <li><h2>RESTAURANTS</h2></li>
+	           <li><a href="#">레스토랑 안내</a></li>
+	           <li><a href="#">카페</a></li>
+	           <img src="img/1010.jpg"/>
+	        
+	         </ul>
+	        
+	      </li>
+	      <li>
+	      <!-- -------------------------------------- -->
+	    		<a href="#"><img src="img/crown1.jpg" id="crown"/><br/>Grand<br/>crown</a>
+	     
+	      </li>
+	      <li><a href="#">INFORMATION</a>
+	      <ul>
+	     	  
+	           <li><h2>INFORMATION</h2></li>
+	       	   <li><a href="#">호텔 소개</a></li>
+	           <li><a href="#">제작자</a></li>
+	           <li><a href="#">오시는 길 </a></li>
+	           <li><a href="#">주변 관광지</a></li>
+	           <img src="img/1010.jpg"/>
+	      	</ul>      
+	      </li>
+	       <li><a href="#">RESERVATION</a>
+	      <ul>
+	      	   <li><h2>RESERVATION</h2></li>
+	       	   <li><a href="#">예약</a></li>
+	           <li><a href="#">예약 확인</a></li>
+	           <li><a href="#">고객문의</a></li>
+	           <img src="img/1010.jpg"/>
+	       </ul>      
+	      </li>
+	        <li><a href="#">MEMBERSHIP</a>
+	      
+	      </li>
+	  
+	</ul>
+</header>
+
+
+
+<section id="imgDiv">
+<img src="img/unnamed.jpg"/>
+
+	<div id="eventText"><h2>Event</h2>서울 도심의 풍경을 한 눈에 담은 모던 스타일리쉬 호텔.<br/>룸형식은<b>standard,deluxe,suite</b><br/>이렇게 세가지 입니다.</div>
+	
+		 <div id="imgHover">
+			<div class="image_hover"><a href="standard_room.html"><img src="img/standardRoom1.jpg" id="standardMain"/></a></div>
+			<div class="image_hover"><a href="deluxe_room.html"><img src="img/deluxe.jpg" id="deluxeMain" /></a></div>
+			<div class="image_hover"><a href="suite_room.html"><img src="img/suite.jpg" id="suiteMain"/></a></div>
+		</div>
+		
+		<span id="standardText"><em>standardroom</em></span>
+		<span id="deluxeText">deluxeroom</span>
+		<span id="suiteText">suiteroom</span>	
+		 
+</section>
+<footer>
+<div id="homeFooter">
+
+<ul id="homeFooterList">
+	<li><h1>CROWN</h1></li>
+	<li>호텔소개|</li>
+	<li>고객문의|</li>
+	<li>이용약관|</li>
+	<li>개인정보처리방침</li>
+</ul>
+<ul id="companyIntroduction">
+	<li>(주)HOTELCROWN|</li>
+	<li>대표자:정호윤</li>
+	<li>서울 마포구 백범로 구프라자 3층</li>
+	<li>02-707-1480 &nbsp;</li>
+	<li>info@thebit.com</li>
+
+</ul>
+</div>
+</footer>
+</body>
+</html>

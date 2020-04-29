@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		background-repeat:no-repeat;
+		background-size: 100% 100%  
+	}
+	#content{
+		width:900px;
+		border:1px solid gray;
+		margin: 0 auto
+	}
+	
+	#backImg>img{
+		width: 100px;
+		height: 100px  
+	}
+	#msg, #wing{ 
+		display:none
+	}
+	#msg{
+		text-align:center;
+		font-size:1.5em;
+		color:yellow
+	}
+	#wing{
+		width:200px;
+		height:50px;
+		position:absolute;
+		left:0px;
+		top:0px
+	}
+</style>
+
+<script>
+	function setSaverImage(){
+		var imgList = ['1.jpg','10.jpg','11.jpg','12.jpg','13.gif','14.gif'];
+		var imgTag="";
+		
+		for(i=0; i<imgList.length; i++){
+			imgTag += "<img src='img/"+ imgList[i] +"' onclick='screenSave(this.src)'/>'";
+		}
+		document.getElementById("backImg").innerHTML = imgTag;
+	}
+	var wh1;
+	var timer;
+	//화면 보호기 시작.
+	function screenSave(imgName){
+		//컨텐츠 숨기기.
+		document.getElementById("content").style.display = "none";
+		document.getElementById("msg").style.display 	="block";
+		document.getElementById("wing").style.display 	="block";
+		console.log(imgName);
+		
+		//선택한 이미지 바디의 배경으로 설정한다.
+		document.body.style.backgroundImage = "url(" + imgName + ")";
+		
+		//높이.
+		wh1 = window.innerHeight;
+		document.body.style.backgroundSize="100%" + wh1 + "px";
+		
+		timer = setInterval("move()", 200);
+	}
+	
+	var wh;
+	var ww;
+	var x=0;
+	var y=0;
+	var stepX = 5;
+	var stepY = 5;
+	function move(){
+		
+		
+		wh = window.innerHeight;
+		ww = window.innerWidth;
+		
+		document.body.style.backgroundSize="100%" + wh +"px";
+		wingObj = document.getElementById("wing");
+		x+=stepX;
+		y+=stepY;
+		
+		wingObj.style.left = x+"px";
+		wingObj.style.top = y+"px";
+		
+		if(x >= ww-200){
+			stepX = -5;
+		}
+		if(y >= wh-50){
+			stepY = -5;
+		}
+		if(x <= 0){
+			stepX= 5;
+		}
+		if(y <= 0){
+			stepY= 5;
+		}
+	}
+	
+	function end(){
+		clearInterval(timer);
+		document.getElementById("content").style.display="block";
+		document.getElementById("msg").style.display="none";
+		document.getElementById("wing").style.display="none";
+		document.body.style.backgroundImage="";
+	}
+</script>
+</head>
+<body onload="setSaverImage()" onkeydown="end()">
+
+	<div id="content">
+		<div>이미지를 클릭하시면 화면 보호기가 실행됩니다.</div>
+		<div id="backImg"></div>
+		<hr/>
+		<div>
+			<img src="img/20.png"/>
+			<img src="img/21.png"/>
+		</div>
+	</div>
+	<div id="msg">아무 키나 누르시면 화면 보호기가 종료 됩니다.</div>	
+	<img src="wingani.gif" id="wing"/>
+
+</body>
+</html>

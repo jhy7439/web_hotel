@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>1개의 이미지를 이용하여 여러곳으로 링크걸기</h1>
+<img src="../img/jeju_map.jpg" usemap="#jejuMap"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 여러곳으로 링크걸기: map태그는 제일 마지막에 표시한다.
+	area태그: 링크걸기
+		shape :링크걸기 모양 (rect:사각형, circle:원모양,poly:다각형)
+		coords:
+-->
+<map name="jejuMap">
+							<!--x, y,   x1, y1 -->
+	<area shape="rect" coords="30,240,120,265" href="../index.html" title="홈으로 이동" taget="_blank"/>
+							<!--  x,  y,  r -->	
+	<area shape="circle" coords="335,270,50" href="http://www.jeju.go.kr"/>
+							 <!-- x,y,x,y,x,t........한쪽방향으로 표시 -->	
+	<area shape="poly" coords="230,105,260,130,250,170,210,165,200,125" href="https://www.jejuair.net/">
+</map>
+
+</body>
+</html>

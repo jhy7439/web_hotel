@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	document.write("<img src='../img/img2.png' id='natural'/>");
+</script>
+</head>
+<body>
+<div id="test" name="id" id="id" value="hong gil dong"></div>
+~~~~~
+<script>
+	/*자바스크립트에서 스타일시 사용하기*/
+	document.getElementById("test").style.height="200px";
+	document.getElementById("tset").style.backgroundColor="yellow";
+	
+	document.getElementById("tset").innerHTML= "<h1>innerHTML 사용하기</h1>";
+	
+/*	document.getElementById("natural").src="../img/img3.png";
+	document.getElementById("natural").title="풍선도움말"; */
+	var obj = document.getElementById("natural");
+	obj.src="../img/img5.png";
+	obj.title ="겨울풍경..";
+	obj.style.border = "2px solid red";
+	
+	alert(document.getElementById("id").value);
+</script>
+</body>
+</html>

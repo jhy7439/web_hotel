@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자손선택자, 후손선택자, 반응선택자</title>
+<style>
+	/*자손선택*/
+	#mainDiv>ul{background:#ddd}
+	/*후손선택*/
+	#mainDiv h2{background:#900}
+	#mainDiv li{color:blue}
+	/*반응선택자*/
+	#mainDiv li:hover{background:pink}/*마우스 오버시*/
+	#mainDiv li:active{color:red}/*선택하고 있을떄*/
+</style>
+</head>
+<body>
+<h1>자손선택자, 후손선택자</h1>
+<div id="mainDiv">
+	<ul>
+		<li>자손, 후손선택자1111</li>
+		<li>자손, 후손선택자2222</li>
+		<li>자손, 후손선택자3333</li>
+		<li>자손, 후손선택자4444
+			<h2>반응선택자....</h2>
+	</li>
+	<li>자손, 후손선택자5555</li>
+	</ul>
+</div>
+<ul>
+		<li>자손, 후손선택자1111</li>
+		<li>자손, 후손선택자2222</li>
+		<li>자손, 후손선택자3333</li>
+		<li>자손, 후손선택자4444
+			<h2>반응선택자....</h2>
+	</li>
+	<li>자손, 후손선택자5555</li>
+	</ul>
+</body>
+</html>

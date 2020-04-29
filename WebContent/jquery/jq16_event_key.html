@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+	#replyTxt{width:400px;height:100px}
+</style>
+<script>
+	$(function(){
+		// onkeyup, onkeydown, onkeypress,onkeyrelease
+		$("#replyTxt").on('keyup',function(){
+			//글자수
+			var cnt = 100- $("#replyTxt").val().length;
+			$("span").text(cnt + ",keyCode("+event.keyCode+")");
+		});
+	});
+</script>
+</head>
+<body>
+<div>남은 문자수 : <span>100</span></div>
+<textarea id="replyTxt" maxlength="100"></textarea>
+</body>
+</html>

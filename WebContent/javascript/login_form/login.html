@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 폼</title>
+<link rel="stylesheet" href="login.css" type="text/css"/>
+</head>
+<body>
+<div id="content">
+	<div id="logo">
+		<img src="logo.gif"/>
+	</div>
+	<div>
+	<nav id="siteMap">
+		<a href="http://www.gmarket.co.kr">홈</a>로그인
+	</nav>
+	<div>
+		<img src="tit_login.gif"/>
+	</div>
+	<div>
+		<div id="logFrm">
+			<input type="radio" name="cho" value="mem" checked/>회원
+			<input type="radio" name="cho" value="nonMem"/> 비회원
+			<!-- 회원 -->
+			<div id='member'>
+				<div id="f1">
+					<div>아이디</div>
+					<input type="text" name="userid"/>
+					<div>비밀번호</div>
+					<input type="password name="userpwd" id="userpwd"/>
+				</div>
+				<div id="f2">
+					<input type="submit" value="LOGIN"/>
+				</div>
+				<div id="f3">
+					<input type="checkbox">아이디 저장</br>
+					<a href="#">아이디 찾기</a> |
+					<a href="#">비밀번호 찾기</a> |
+					<a href="#">회원가입</a>
+				</div>
+			</div>
+			<!-- 비회원 -->
+			<div id="nonMember">
+				nonMember
+			</div>
+		</div>
+		<div id="banner" style="background:yellow">
+			<img src="g1.JPG"/>
+		</div>	
+	</div>	
+		
+</div>
+</div>
+</body>
+</html>

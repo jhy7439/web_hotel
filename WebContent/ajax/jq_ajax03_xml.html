@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewpory" content="width=device-width, inital-scale=1"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+	$(function(){
+		$("#startAjax").click(function(){
+			//ajax로 서버에서 xml파일의 내용 가져오기
+			$.ajax({
+				url:'ajax_data.xml', //가져올 파일명
+				dataType:'xml', //파일종류
+				success:function(result){
+					//row태그의 수를 구한다.
+					if($(result).find("row").length>0){//회원정보가 있을 떄
+						var tag ="";
+						$(result).find("row").each(function(){//row의 수만큼 반복
+							var name = $(this).find("username").text();
+							var tel = $(this).find("tel").text();
+							var addr = $(this).find("addr").text();
+							tag += "<tr><td>"+name+"</td><td>"+tel+"</td><td>"+addr+"</td></tr>";
+						});
+						$("#memberList").append(tag);
+						$("#memberList").addClass("table");
+						$("#memberList").addClass("table-hover");
+					}
+				},
+				error:function(request, status, error){
+					console.log("가져오기 실패");
+					console.log("code="+request.code);
+					console.log("message="+request,reponseText);
+					console.log("error="+error);
+				}
+			});
+		});
+		
+		//조선일보 뉴스 비동기식 가져오기
+		//$("#getNews").on('click',function(){ 클릭 이벤트
+			$.ajax({
+				url:"newsRss.xml",
+				dataType:'xml',
+				success:function(result){
+					if($(result).find("item").length>0){//뉴스가 있을떄
+						$(result).find("item").each(function(){
+							var title = $(this).find("title").text();//제목
+							var link = $(this).find("link").text();//링크주소
+							var author = $(this).find("author").text();//작성자
+							var data = $(this).find("pubData").text();//작성날짜
+							var tag = "<li><a href='"+link+"'>"+title+"</a>("+author+","+data+")</li>";
+							$("#newsList").append(tag);
+						});
+					}
+				},
+				error:function(){
+					alert("읽기 실패...");
+				}
+			})
+		//});
+	});
+</script>
+
+</head>
+<body>
+<div class="container">
+	<input type="button" value="ajax실행(xml파일읽어오기)" id="startAjax"/>
+	<table id="memberList" class="table table-hover">
+	
+	</table>
+	<hr/>
+<div>
+	<input type="button" value="뉴스 가져오기" id="getNews"/>
+	<ol id="newsList"></ol>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+ul {color: red}
+
+/*a태그 링크 상태 스타일    
+	text-decoration : underline(밑줄),overline(윗줄) , linethrough(취소선) , none
+	
+	del, s, strike
+*/
+A:link{text-decoration:none; color:gray}/*링크*/
+A:visited{text-decoration:none; color:gray}/*방문했을떄*/
+A:hover{text-decorationL:underline; font-weight:bold;color:blue}/*마우스 오버 */
+A:active{color:green}/*페이지 이동을 위해 클릭한 상태일떄*/

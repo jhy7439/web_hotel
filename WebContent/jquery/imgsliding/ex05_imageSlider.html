@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+	#mainDiv{width:800px;border:1px solid gray;margin:0 auto}
+	/*이미지 슬라이드*/
+	#slideView{width:600px;height:500px;background-color:orange;
+			   position:relative;overflow:hidden}
+	#imgList{width:3600px;height:500px;position:relative}
+	#imgList>img{width:600px;height:500px}
+	
+	/*텍스트 설명*/
+	#slideTxt{position:absolute;width:450px;height:240px;background-color:yellow;left:-450px;top:100px}
+	#slideTxt>div{position:absolute;top:0px;left:0px; width:450px;height:240px}
+	
+	/*control*/
+	#control{height:15px;backgrund-color:lightblue;position:absolute; left:200px; bottom:30px}
+	#control>div{width:15px;height:15px; background-image:url(point_button.png);
+				 background-position:0px 0px; float:left; margin-right:20px}
+	
+	#control>.blueIcon{background-position:0px -30px}
+	#control>.grayIcon{background-position:0px -15px}			 
+</style>
+<script>
+	$(function(){
+		//슬라이드 이동하는 함수
+		function slideMove(index){
+			//이미지이동
+			var left = -(index*600)
+			$("#imgList").animate({marginLeft:left+"px"},2000);
+			//텍스트이동
+			$("#slideTxt>div").css("margin-left","0px");
+			$("#slideTxt>div").eq(index).delay(1000).animate({marginLeft:"500px"},500);
+			//컨트롤 색상변경
+			$("#control>div").removeClass("blueIcon");
+			$("#control>div").eq(index).addClass("blueIcon");
+		}
+		//컨트롤에 마우스 오버
+		$("#control>div").hover(function(){
+			$(this).addClass("grayIcon");
+		},function(){
+			$(this).removeClass("grayIcon");
+		});
+		//컨트롤 클릭시 이동하기
+		$("#control>div").click(function(){
+			var i = $("#control>div").index(this);
+			slideMove(i);
+		});
+		
+		//난수 0~5 ->처음에 슬라이드 이동을 위한 난수
+		var idx = parseInt(Math.random()*6); // 0~1사이의 값6은 큰수-작은수+1 6-1+1=6
+		slideMove(idx);
+	});
+</script>
+</head>
+<body>
+<div id="mainDiv">
+	<h1>이미지 슬라이드</h1>
+	<div id="slideView">
+		<!-- 이미지 슬라이드 -->
+		<div id="imgList">
+		<img src="winImg1.jpg"/><img src="winImg2.jpg"/><img src="winImg3.jpg"/><img src="winImg4.jpg"/><img src="winImg5.jpg"/><img src="winImg6.jpg"/>
+		</div>
+	<!-- 텍스트 설명 -->
+	<div id="slideTxt">
+		<div>
+			<h1>첫번째 슬라이드</h1>
+			<h2>첫번째 설명</h2>
+			<p>17일 가수 공민지는 자신의 인스타그램에 "새 출발합니다. 
+			오늘부로 소속사를 떠나서 자유를 얻었습니다. 늘 지지해주시는 팬 분들을 위해서라도 
+			소속사와 협상해서 분쟁을 빨리 끝냈습니다"라고 전했다.</p> 
+		</div>
+		<div>
+			<h1>두번째 슬라이드</h1>
+			<h2>두번째 설명</h2>
+			<p>이어 "최근 몇년간 활발히 활동하는 모습을 못 보여드려 마음 한켠에 늘 아쉬움이 있었는데,</p> 
+		</div>
+		<div>
+			<h1>세번째 슬라이드</h1>
+			<h2>세번째 설명</h2>
+			<p>17일 가수 공민지는 자신의 인스타그램에 "새 출발합니다. </p> 
+		</div>
+		<div>
+			<h1>네번째 슬라이드</h1>
+			<h2>네번째 설명</h2>
+			<p>17일 가수 공민지는 자신의 인스타그램에 "새 출발합니다. 
+			오늘부로 소속사를 떠나서 자유를 얻었습니다. 늘 지지해주시는 팬 분들을 위해서라도 
+			소속사와 협상해서 분쟁을 빨리 끝냈습니다"라고 전했다.</p> 
+		</div>
+		<div>
+			<h1>다섯번째 슬라이드</h1>
+			<h2>다섯번째 설명</h2>
+			<p>지금부터는 더 자주, 더 멋진 모습 보여드릴 수 있게 되었습니다. 앞으로는 공민지라는 </p>
+		</div>
+		<div>
+			<h1>여섯번째 슬라이드</h1>
+			<h2>여섯번째 설명</h2>
+			<p>이름에 어울리게 무대 위에서 더 밝고 당당한 모습으로 인사드리겠습니다라고 덧붙였다.</p>
+		</div>
+	</div><!-- id=slideTxt -->
+	<!-- 컨트롤러 -->
+	<div id="control">
+		<div></div><div></div><div></div><div></div><div></div><div></div>
+	</div>
+</div><!-- id-imgView -->
+</div><!-- id=mainDiv -->
+</body>
+</html>

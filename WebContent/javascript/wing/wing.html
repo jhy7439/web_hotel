@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>화면 보호기</title>
+<style>
+	/*컨텐츠*/
+	#content{width:900px;border:1px solid gray; margin:0 auto}
+	#content>div{text-align:center}
+	#backImg>img{width:100px;height:100px;border:1px solid gray}
+	
+	/*화면보호기*/
+	#msg,#wing{display:none}
+	#msg{text-align:center;font-size:1.5em;color:yellow}
+	#wing{width:200px;height:50px;position:absolute;left:0;top:0}
+	
+	body{
+		background-repeat:no-repeat;
+		background-size:100% 100%;	
+	}
+</style>
+<script>
+	//화면보호기로 사용할 이미지
+	function setSaverImage(){
+		var imgLst =['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','1.jpg'];
+		var imgTag="";
+		for(i=0; i<imgLst.length;i++){
+			imgTag +="<img src='"+imgLst[i]+"' onclick='startScreenSaver(this.src)'/>";
+		}
+		document.getElementById("backImg").innerHTML = imgTag;
+	}
+	//화면보호기 시작
+	var timer;
+	var wH;
+	function startScreenSaver(filename){
+		
+		//컨텐츠 숨기기
+		document.getElementById("content").style.display="none";
+		//안내 메세지 보이기
+		document.getElementById("msg").style.display="block";
+		document.getElementById("wing").style.display="block";
+		
+		//선택한 이미지 body의 배경으로 설정한다.
+		document.body.style.backgroundImage = "url("+filename+")";
+		//높이 재설정
+		wH = window.innerHeight;
+		document.body.style.backgroundSize="100%" +wH+ "px";
+		
+		timer = setInterval("screenSaveMove()",200);
+	}
+	//윈도우 높이
+	var wWidth, wHeight, x=0, y=0, xStep=5, yStep=5;
+	//무브
+	function screenSavaMove(){
+		//window크기
+		wWidth = window.innerWidth;
+		wHeight = window.innerHeight;
+		document.body.style.backgroundSize="100%" + wHeight+"px";
+		
+		wingObj = document.getElementById("wing");
+		
+		x += xStep; y += yStep;
+		wingObj.style.left = x+"px";
+		wingObj.style.top = y+"px";
+		
+		//x좌표
+		if(x >= wWidth-200) xStep=-5;
+		if(y >= wHeight-55) yStep=-5;
+		if(x <=0) xStep = 5;
+		if(y <=0) yStep = 5;
+	}
+	//스크린 세이브 종료
+	function endScreenSaver(){
+		clearInterval(timer);
+		document.getElementById("content").style.display="block";
+		document.getElementById("msg").style.display="none";
+		document.getElementById("wing").style.display="none";
+		document.body.style.backgroundImage = "";//배경이미지 지우기
+	}
+</script>
+</head>
+<body onload ="setSaverImage()" onkeydown="endScreenSaver()">
+<!-- 컨텐츠 -->
+<div id="content">
+	<div>이미지를 클릭하시면 화면보호기가 실행됩니다.</div>
+	<div id="backImg"></div>
+	<hr/>
+	<div>
+		<img src="1.jpg"/><br/>
+		<img src="2.jpg"/>
+	</div>
+</div>
+<!-- 화면보호기 -->
+<div id="msg">아무키나 누르시면 화면보호기가 종료됩니다.</div>
+<img src="wingani.gif" id="wing"/>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인접선택자</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+/*
+	$(document).ready(function(){
+		
+	});
+*/	
+	$(function(){
+		//인접선택자
+		//모든선택자(*),태그선택자,아이디선택자,클래스선택자,자손선택자(>),후손선택자(빈칸)
+		//children() : 자손을 선택한다.
+		$("div").children(".one").css("color","#f00");
+		//next() :선택자 다음에 있는 선택
+		$("#first").next().css("background","lightblue");
+		//prev() :선택자의 이전에 있는 선택
+		$("img").prev().css("border","2px solid gray");
+		//parent() : 선택자의 부모를 선택
+		$("img").parent().css("background","#0f0");
+		//siblings() : 선택자의 형제들을 선택
+		$("#first").siblings().css("color","blue");
+		$("div").next().attr("title","신촌역~~~~~~~~~");
+	});
+</script>
+</head>
+<body>
+<div>
+	<h1 id="first">인접 선택자</h1>
+	<h1 class="one">children선택자</h1>
+	<h2 class="one">next선택자</h2>
+	<h4>prev선택자</h4>
+	<h4>parent선택자</h4>
+	<h3>sibling선택자</h3>
+	<h2>후손, 자손선택자</h2> 
+</div>
+<img src="../img/img3.png"/>
+</body>
+</html>

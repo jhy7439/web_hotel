@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function startDate(){
+		//날짜와 시간정보 구하기
+		var dateTime = new Date();//날짜 객체 생성
+		dateTime = new Date("2020.04.04"); // "2020-04-04"   ,  "2020/04/04"
+		//dateTime = new Date(84747464645); //1972년 9월8일 5시57분44초를 기준으로 구한 밀리초
+	
+		//년 : getFullYear() , 월 : getMonth(), 1월:0, 2월:1....  , 일 : getDate()
+		//시 : getHours(), 분 : getMinutes(), 초 : getSeconds()
+		//요일 : getDay() -> 일요일 :0, 월요일:1,,,,,토요일:6
+		
+		var result = dateTime.getFullYear()+"년";
+		result += (dateTime.getMonth()+1)+ "월" + dateTime.getDate() +"일";
+		result += dateTime.getHours()+"시" + dateTime.getMinutes() + "분";
+		result += dateTime.getSeconds()+"초";
+		
+		var week="";
+		switch(dateTime.getDay()){
+		case 0 : week = "일"; break;
+		case 1 : week = "월"; break;
+		case 2 : week = "화"; break;
+		case 3 : week = "수"; break;
+		case 4 : week = "목"; break;
+		case 5 : week = "금"; break;
+		case 6 : week = "토"; break;
+		}
+		result += week + "요일";
+		var obj = document.getElementById("dateView");
+		obj.innerHTML=result;
+		obj.style.fontSize = "2em";
+	}
+</script>
+</head>
+<body>
+<div id="dateView"></div>
+<script>
+	startDate();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//jquery 이벤트 처리하기
+		// onclick,onmouseover(onmouseenter),onmouseout(onmouseleave),
+		// onchange,onload,onunload,onfocus, onsubmit, onscroll, onresize
+		// onkeydown, onkeyup, onkeypress, onkeyrelease
+		// ondblclick, onreset, onblur
+		
+		//이벤트 처리방법 1===========
+		/*
+		$("h1").click(function(){
+			//이벤트 발생시 처리
+			//$("body").prepend("클릭하였습니다.");
+			// this : 이벤트가 발생한 객체
+			$(this).css("background-color","lightblue");
+			$(this).html($(this).html()+"*");
+		});
+		*/
+		//이벤트 처리 방법 2=========
+		//			이벤트 종류,이벤트가 발생시 처리할 함수
+		$("h1").on('click',function(){
+			$(this).css("color","#f00");
+		});
+		//이벤트 처리 방법 3=========
+		// mouseenter : 배경을 yellow, mouseleave : 배경을 gray
+		//	변수:값
+		$("h1").on({mouseenter:function(){
+						//실행문
+						$(this).css("background-color","yellow");
+					},mouseleave:function(){
+						//실행문
+						$(this).css("background-color","gray");
+					}});
+		//이벤트 처리 방법4========
+		// click, focus 같은 작업을 하는 이벤트 처리하기
+		$("input").on('click focus',function(){
+			$(this).val("이벤트처리됨");
+		});
+		
+	});
+</script>
+</head>
+<body>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+<input type="button" value="12345"/>
+<input type="button" value="abcdef"/>
+<input type="button" value="가나다라"/>
+</body>
+</html>

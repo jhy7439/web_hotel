@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>border 속성</title>
+<style>
+/*
+	border-style : 선의 모양(solid:실선, dottedd:점선, dashed, double(이중선), none:선없음,grove:오목하게,inset:볼록하게)
+	border-width : 선의 두께(px)
+	border-color : 선의 색상(rgb, 색상명)
+*/
+	div, h1, li{border-style:solid; border-width:1px; border-color:red}
+	/*선의 위치에 따른 선모양 :top, right, bottom, left*/
+	h1{border-top-style:solid; border-top-width :5px; border-top-color:green;
+	   border-right-style:dotted; border-right-width :10px; border-right-color:yellow;
+	   border-bottom-style:dashed; border-bottom-width :15px; border-bottom-color:pink}
+	/*border의 그룹화*/
+	li{border:3px double blue}
+	/*둥근 사각형*/
+	ul{height:100px;
+	   border:1px solid black;
+	   border-radius: 10px 20px 10px 5px;	
+	}
+	p{border-style:solid dashed double}     
+</style>
+</head>
+<body>
+<div>Div태그</div>
+<h1>h1태그</h1>
+<ul>
+	<li>AAAAAAAA</li>
+	<li>BBBBBBBB</li>
+
+
+
+</ul>
+<p>dddddddddddd</p>
+</body>
+</html>

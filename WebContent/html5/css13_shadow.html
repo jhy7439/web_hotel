@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>그림자(shadow) 속성</title>
+<style>
+	div{width:300px; heigt:100px; font-size:2em; border:1px solid red;
+		margin:20px; text-align:center}
+	/*박스 또는 문자에 그림자 설정하기*/	
+	/*텍스에 그림자 설정			오른쪽  아래쪽	투명	그림자색상*/
+	div:first-child{text-shadow:5px    5px	5px  gray}
+	/*박스에 그림자 설정*/
+	div:last-of-type{box-shadow:10px -5px 5px black}
+</style>
+</head>
+<body>
+<div>텍스트에 그림자 설정</div>
+<div>박스에 그림자 설정</div>
+</body>
+</html>
