@@ -59,10 +59,8 @@ footer{background-color:#F0F0F0;height:200px;bottom:0;position:relative;width:10
  				text-align:center; line-height:60px;
 				}
 .rsv_calendar{width:1280px;}
-.calendar_box{height:320px; padding:0 180px 0 180px;}
-.calendar_box>a{position:absolute;}
-.calendar_box>div{float:left;width:50%;}
-.src_calendar>div, .dest_calendar>div{text-align:center;}
+.calendar_box{width:100%;height:320px; padding:0 180px 0 180px;}
+
 .calendar_btn{height:30px; text-align:center;}
 .rsv_btn_search>a{display:block;width:100%;height:60px;
 					line-height:60px;
