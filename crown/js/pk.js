@@ -1,5 +1,5 @@
 var scrollValue;
-var tagImg =['img/8126.jpg','img/8132.png','img/7867.png','img/5648.png','img/7920.jpg','img/7867.png'];
+var tagImg =['../img/8126.jpg','../img/8132.png','../img/7867.png','../img/5648.png','../img/7920.jpg','../img/7867.png'];
 var count=0;
 $(function (){
 	
@@ -13,7 +13,7 @@ $(function (){
 		
 	if(scrollValue>=200){
 		
-		$("#crown>img").attr("src","img/logo2.PNG");
+		$("#crown>img").attr("src","../img/logo2.PNG");
 		$("#crown>img").css("width","90%").css("height","50px");
 		$("#menubar>li").css("width","15.8%").css("float","left");
 		$("#menubar>li:nth-child(4)").css("width","50px");
@@ -21,7 +21,7 @@ $(function (){
 		
 	}else if(scrollValue<200){
 		
-		$("#crown>img").attr("src","img/logo1.PNG");
+		$("#crown>img").attr("src","../img/logo1.PNG");
 		$("#menubar>li").css("width","13.7%").css("text-align","center").css("float","left").css("transition-duration","0.5s");
 	}
 	
