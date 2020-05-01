@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+
+
+
+
+
+#aa{
+	width:100%;
+	height:400px;
+	float:left;
+	margin:0 auto;
+	text-align:center
+}
+#bb{
+	font-size:20px;
+	background:red;
+	width:50%;
+	height:350px;
+	float:left;
+	margin:0 auto;
+	text-align:center
+}
+#cc{
+	font-size:20px;
+	background:red;
+	width:50%;
+	height:350px;
+	float:left;
+	margin:0 auto;
+	text-align:center
+}
+#dd{
+	margin-top:100px;
+	width:100%;
+	height:500px;
+	border-top:20px solid gray;
+	border-bottom:20px solid gray;
+	text-align:center;
+}
+#ee{
+	width:100%;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<link rel="stylesheet" href="../css/find_id_pwd.css" href="text/css"/>
+<link rel="stylesheet" href="../css/header.css" href="text/css"/>
+<script src="../js/header_footer.js"></script>
+<script src="../js/find_id_pwd.js"></script>
+</head>
+<body>
+<!-- 헤더 -->
+<header>
+		
+		<div id="utilbar">
+			<p><a href="login.html">로그인</a>&nbsp;|&nbsp;&nbsp;&nbsp;회원가입&nbsp;|&nbsp;&nbsp;&nbsp;예약확인&nbsp;|&nbsp;&nbsp;&nbsp;오시는길|&nbsp;&nbsp;&nbsp;<a href="mypage_main.html">마이페이지</a></p>
+		</div>
+		<ul id="menubar">
+
+			<li><a href="events_main.html">EVENT</a>
+				<ul>
+					<li><h2>EVENT</h2></li>
+					<li><a href="events_main.html">EVENTMAIN</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="room_main.html">ROOM</a>
+				<ul>
+					<li><h2>ROOM</h2></li>
+					<li><a href="room_standard.html">STANDARD</a></li>
+					<li><a href="room_deluxe.html">DELUX</a></li>
+					<li><a href="room_suite.html">SUITE</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="res_main.html">RESTAURANTS</a>
+				<ul>
+					<li><h2>RESTAURANTS</h2></li>
+					<li><a href="restaurant.html">레스토랑 안내</a></li>
+					<li><a href="cafe.html">카페</a></li>
+					<img src="../img/7177.png" />
+
+				</ul></li>
+			<li id=crown>
+				<!-- -------------------------------------- --> <a href="main.html"><img src="../img/logo1.PNG"/></a>
+
+			</li>
+			<li><a href="#">INFORMATION</a>
+				<ul>
+
+					<li><h2>INFORMATION</h2></li>
+					<li><a href="#">호텔 소개</a></li>
+					<li><a href="#">제작자</a></li>
+					<li><a href="#">오시는 길 </a></li>
+					<li><a href="famousRestaurant.html">주변 관광지</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="reservation_main.html">RESERVATION</a>
+				<ul>
+					<li><h2>RESERVATION</h2></li>
+					<li><a href="reservation_main.html">예약</a></li>
+					<li><a href="#">예약 확인</a></li>
+					<li><a href="#"></a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="#">MEMBERSHIP</a></li>
+
+		</ul>
+	</header>
+
+
+<!-- 컨텐츠 -->
+<div id="content">
+	<div id="top">
+		<h2>아이디/비밀번호 찾기</h2>
+		<div id="text">
+			<br/>
+			<label>아이디 혹은 비밀번호를 잊으셨나요?</label>
+			<br/>
+			<label>휴대폰이나 이메일 인증을 통해 찾으세요.</label>
+		</div>
+	</div>
+	<div id="bottom">
+		<div id="frame">
+			<div id="certified">
+				<p>아이디 찾기</p>
+				<input type="text" id="username" placeholder="이름"/><br/>
+				<input type="text" id="tel1" placeholder="010"/>
+				<input type="text" id="tel2"/>
+				<input type="text" id="tel3"/><br/>
+				<input type="button" id="send" value="확인">
+			</div>
+			<div id="hr"></div>
+			<div id="or">or</div>
+			<div id="pwd">
+				<p>비밀번호 찾기</p>
+				<button id="telChk" onclick="telShow()">휴대폰 인증</button>
+				<button id="emailChk" onclick="emailShow()">이메일 인증</button>
+				<div id="showTel">
+				<input type="text" id="telId" placeholder="아이디"/><br/>
+				<input type="button" id="telSend" value="확인">
+				</div>
+				<div id="showEmail" style="display:none">
+				<input type="text" id="emailId" placeholder="아이디"/><br/>
+				<input type="text" id="emailName" placeholder="이름"/><br/>
+				<input type="text" id="email" placeholder="이메일"/>
+				<input type="button" id="emailSend" value="이메일 인증"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--풋터-->
+	<footer id="footer">
+		<hr id="footerhr">
+		<div id="homeFooter">
+
+			<ul id="homeFooterList">
+				<li><h1>CROWN</h1></li>
+				<li>호텔소개|</li>
+				<li>고객문의|</li>
+				<li>이용약관|</li>
+				<li>개인정보처리방침</li>
+			</ul>
+			<ul id="companyIntroduction">
+				<li>(주)HOTELCROWN|</li>
+				<li>대표자:정호윤</li>
+				<li>서울 마포구 백범로 구프라자 3층</li>
+				<li>02-707-1480 &nbsp;</li>
+				<li>info@thebit.com</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

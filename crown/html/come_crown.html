@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap"></script>
+<link rel="stylesheet" href="../css/come_crown.css" href="text/css"/>
+	<style>
+#gMap{width:100%;height:600px;border:1px solid gray}
+
+</style>
+
+</head>
+<body>
+<div id="gMap"></div>
+<script>
+/*지도의 정보를 표시할 할숨*/
+// 위도: latitude, 경도:longitude
+var latitude =37.5729503;
+var longitude =126.9793578;
+var lati = [37.5729502,37.5729522,37.5729542,37.5729533,37.5729521,37.5729551];
+var longi =[126.9793576,126.9793573,126.9793566,126.9793571,126.9793572,126.9793579]
+function initMap(){
+	//지도의 가운데를 지정한다.
+	var myCenter = new google.maps.LatLng(latitude,longitude);
+	//지도 그릴때 필요한 기타정보를 JSON형식에 데이터 생성한다.
+	var mapProperty={center : myCenter,
+					 zoom : 15, //0~21사이의 값을 사용한다. , 숫자가 클수록 확대
+					 mapTypeId:google.maps.MapTypeId.ROADMAP//지도종류(ROADMAP,HYBRID,STEELITE,TERRAIN)
+					}
+	
+	//map객체 생성하기					지도를 보여줄곳			맵옵션
+	var map =new google.maps.Map(document.getElementById("gMap"),mapProperty);
+	//마커 표시하기
+	var marker = new google.maps.Marker({
+		position:myCenter//마커를 표시할곳
+		,map:map//지도선택
+		,icon:"../img/gmap_pin.png"//표시할 마커이미지
+		,title:'마커에 표시될 내용'
+	});
+	marker.setMap(map);
+	//마커 클릭시 대화상자 띄우기
+	//대화상자에 표시할 내용
+	var content = "위도:"+latitude+"<br/>경도:"+longitude
+			content +="<br/><img src='../img/1.jpg' width='80' height='50'/>";
+	
+	var info =new google.maps.InfoWindow({content:content});
+	//이벤트 등록
+	google.maps.event.addListener(marker, "click",function(){info.open(map,marker)});
+	
+	//여러개 마커표시
+	for(i=0;i<lati.length;i++){
+		var mk =new google.maps.Marker({position:new google.maps.LatLng(lati[i],longi[i]),
+					map:map,
+					title:"latitude:"+lati[i]+",longitude:"+longi[i]});
+		mk.setMap(map);
+		
+	}
+	//반경표시
+	var myCity =new google.maps.Circle({
+		center:myCenter // 원의 중심
+		,radius:500//반경 :m(2000m)
+		,strokeColor:'#f00'// 선의 색상
+		,strokeOpcity:0.7 //선의 투명도 0~1
+		,strokeWidth:3 //선의 두깨 px
+		,fillColor:'#0f0'// 배경색
+		,fillOpcity:0.5//배경의 투명도 0~1
+	});
+	myCity.setMap(map);
+}
+</script>
+<div id="aa">	
+<div id="bb">
+Incheon International Airport (ICN)<br>
+호텔 오시는 길 55 km W<br>
+
+이 호텔은 셔틀 서비스를 제공하지 않습니다.<br>
+
+대여폰 사용 가능<br>
+대체 교통편: 공항 리무진 버스: 노선 번호 6018번(인천 공항 ↔ 신도림역), 요금: 15,000원(편도)<br>
+예상 택시 요금: 50,000 KRW (편도)<br>
+버스 서비스, 요금: 15,000 KRW (편도)<br>
+지하철 서비스, 요금: 3,950 KRW (편도)<br>
+ICN 공항 웹사이트 방문
+</div>
+<div id="cc">
+Incheon International Airport (ICN)<br>
+호텔 오시는 길 55 km W<br>
+
+이 호텔은 셔틀 서비스를 제공하지 않습니다.<br>
+
+대여폰 사용 가능<br>
+대체 교통편: 공항 리무진 버스: 노선 번호 6018번(인천 공항 ↔ 신도림역), 요금: 15,000원(편도)<br>
+예상 택시 요금: 50,000 KRW (편도)<br>
+버스 서비스, 요금: 15,000 KRW (편도)<br>
+지하철 서비스, 요금: 3,950 KRW (편도)<br>
+ICN 공항 웹사이트 방문<br>
+</div>
+</div>
+<div id="dd">
+
+<h1>주차</h1>
+무료
+</div>
+<div id="ee">
+</div>
+</body>
+</html>

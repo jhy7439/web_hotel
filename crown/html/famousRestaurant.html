@@ -10,10 +10,67 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7af60f982c2441421b46e146905f7b8&libraries=services,clusterer,drawing"></script>
 <link rel="stylesheet" type="text/css" href="../api/kakaomap/kakaoMap.css">
-
+<link rel="stylesheet" href="../css/header.css" type="text/css" />
+<script src="../js/header_footer.js"></script>
 
 </head>
 <body>
+	<header>
+		
+		<div id="utilbar">
+			<p><a href="login.html">로그인</a>&nbsp;|&nbsp;&nbsp;&nbsp;회원가입&nbsp;|&nbsp;&nbsp;&nbsp;예약확인&nbsp;|&nbsp;&nbsp;&nbsp;오시는길|&nbsp;&nbsp;&nbsp;<a href="mypage_main.html">마이페이지</a></p>
+		</div>
+		<ul id="menubar">
+
+			<li><a href="events_main.html">EVENT</a>
+				<ul>
+					<li><h2>EVENT</h2></li>
+					<li><a href="events_main.html">EVENTMAIN</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="room_main.html">ROOM</a>
+				<ul>
+					<li><h2>ROOM</h2></li>
+					<li><a href="room_standard.html">STANDARD</a></li>
+					<li><a href="room_deluxe.html">DELUX</a></li>
+					<li><a href="room_suite.html">SUITE</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="res_main.html">RESTAURANTS</a>
+				<ul>
+					<li><h2>RESTAURANTS</h2></li>
+					<li><a href="restaurant.html">레스토랑 안내</a></li>
+					<li><a href="cafe.html">카페</a></li>
+					<img src="../img/7177.png" />
+
+				</ul></li>
+			<li id=crown>
+				<!-- -------------------------------------- --> <a href="main.html"><img src="../img/logo1.PNG"/></a>
+
+			</li>
+			<li><a href="#">INFORMATION</a>
+				<ul>
+
+					<li><h2>INFORMATION</h2></li>
+					<li><a href="#">호텔 소개</a></li>
+					<li><a href="#">제작자</a></li>
+					<li><a href="#">오시는 길 </a></li>
+					<li><a href="famousRestaurant.html">주변 관광지</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="reservation_main.html">RESERVATION</a>
+				<ul>
+					<li><h2>RESERVATION</h2></li>
+					<li><a href="reservation_main.html">예약</a></li>
+					<li><a href="#">예약 확인</a></li>
+					<li><a href="#"></a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="#">MEMBERSHIP</a></li>
+
+		</ul>
+	</header>
+	<section id="section">
 <div class="map_wrap">
     
 
@@ -34,11 +91,31 @@
     <script src="../api/kakaomap/kakaoMap.js"></script>
     </div>
     <div id="search">
-    d
+    
     </div>
 </div>
+</section>
 
+	<footer id="footer">
+		<hr id="footerhr">
+		<div id="homeFooter">
 
+			<ul id="homeFooterList">
+				<li><h1>CROWN</h1></li>
+				<li>호텔소개|</li>
+				<li>고객문의|</li>
+				<li>이용약관|</li>
+				<li>개인정보처리방침</li>
+			</ul>
+			<ul id="companyIntroduction">
+				<li>(주)HOTELCROWN|</li>
+				<li>대표자:정호윤</li>
+				<li>서울 마포구 백범로 구프라자 3층</li>
+				<li>02-707-1480 &nbsp;</li>
+				<li>info@thebit.com</li>
+			</ul>
+		</div>
+	</footer>
 
 </body>
 </html>

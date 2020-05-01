@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문의하기</title>
+<meta name="viewpory" content="width=device-width, inital-scale=1"/>
+<link rel="stylesheet" href="../jquery.bxslider.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/header.css" type="text/css"/>
+<link rel="stylesheet" href="../css/fqa.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../js/header_footer.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="../jquery.bxslider.min.js"></script>
+
+
+
+<style>
+
+
+</style>
+</head>
+<body>
+	<header>
+		
+		<div id="utilbar">
+			<p><a href="login.html">로그인</a>&nbsp;|&nbsp;&nbsp;&nbsp;회원가입&nbsp;|&nbsp;&nbsp;&nbsp;예약확인&nbsp;|&nbsp;&nbsp;&nbsp;오시는길|&nbsp;&nbsp;&nbsp;<a href="mypage_main.html">마이페이지</a></p>
+		</div>
+		<ul id="menubar">
+
+			<li><a href="events_main.html">EVENT</a>
+				<ul>
+					<li><h2>EVENT</h2></li>
+					<li><a href="events_main.html">EVENTMAIN</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="room_main.html">ROOM</a>
+				<ul>
+					<li><h2>ROOM</h2></li>
+					<li><a href="room_standard.html">STANDARD</a></li>
+					<li><a href="room_deluxe.html">DELUX</a></li>
+					<li><a href="room_suite.html">SUITE</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="restaurant.html">RESTAURANTS</a>
+				<ul>
+					<li><h2>RESTAURANTS</h2></li>
+					<li><a href="restaurant.html">레스토랑 안내</a></li>
+					<li><a href="cafe.html">카페</a></li>
+					<img src="../img/7177.png" />
+
+				</ul></li>
+			<li id=crown>
+				<!-- -------------------------------------- --> <a href="main.html"><img src="../img/logo1.PNG"/></a>
+
+			</li>
+			<li><a href="#">INFORMATION</a>
+				<ul>
+
+					<li><h2>INFORMATION</h2></li>
+					<li><a href="#">호텔 소개</a></li>
+					<li><a href="#">제작자</a></li>
+					<li><a href="#">오시는 길 </a></li>
+					<li><a href="#">주변 관광지</a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="reservation_main.html">RESERVATION</a>
+				<ul>
+					<li><h2>RESERVATION</h2></li>
+					<li><a href="reservation_main.html">예약</a></li>
+					<li><a href="#">예약 확인</a></li>
+					<li><a href="#"></a></li>
+					<img src="../img/7177.png" />
+				</ul></li>
+			<li><a href="#">MEMBERSHIP</a></li>
+
+		</ul>
+	</header>
+<section id="menuText">
+	<!-- my page메인화면 -->
+	<div id="menuTop">
+		<span>
+			<a href="#">
+				<b>고객문의</b>
+			</a> 
+		</span>
+		<span>></span>
+		<span style="color:black">
+			<a href="#">홈</a>
+		</span>
+	</div>
+	
+		<div id="profileLine"><h2>문의하기</h2></div>
+		
+	
+	<!-- 프로필 수정 -->
+	<div id="buttonDiv">
+	<div id="buttonText">
+		<div><button><a href="cstlnq_fqa.html"><span class="span_font">자주하는질문</span></a></button></div>
+		<div><button><a href="question_list.html"><span class="span_font">질문 리스트</span></a></button></div>
+		<div><button><a href="question.html"><span class="span_font">고객문의</span></a></button></div>
+	</div>
+	
+	
+	
+	<!-- 질문유형 -->
+	<div id="idPwd">
+		<div id="questionType">질문유형</div>
+			<div id="list">
+			
+			<select>
+			<option value='네이버' selected>dddddddddddddddddddddddd</option>
+			<option value='네이트'>nate.com</option>
+			<option value='다음'>daum.net</option>
+			<option value='구글'>gmail.com</option>
+			</select>
+			</div>	
+	<div id="title">제목</div>
+		<input type="text" value="50자 이내 작성" id="text">
+		<div id="content">내용</div>
+		<input type="text" value="300자 이내 작성" id="text1">
+		<div id="name">성명</div>
+		<input type="text" value="5자 이내 작성" id="text2">
+		<div id="tel">연락처</div>
+		<input type="text" value="-빼고 입력하기" id="text3">
+	</div>
+	
+	<div id="checkBox">
+	<div>공개여부
+		<input type="checkbox">
+	</div>	
+	<div id="publicAvailability">공개
+		<input type="checkbox">
+	</div>	
+	<div id="private">비공개</div>
+	</div>
+	<div id="enrollment"><button>등록</button></div>	
+</section>
+
+<footer id="footer">
+		<hr id="footerhr">
+		<div id="homeFooter">
+
+			<ul id="homeFooterList">
+				<li><h1>CROWN</h1></li>
+				<li>호텔소개|</li>
+				<li>고객문의|</li>
+				<li>이용약관|</li>
+				<li>개인정보처리방침</li>
+			</ul>
+			<ul id="companyIntroduction">
+				<li>(주)HOTELCROWN|</li>
+				<li>대표자:정호윤</li>
+				<li>서울 마포구 백범로 구프라자 3층</li>
+				<li>02-707-1480 &nbsp;</li>
+				<li>info@thebit.com</li>
+			</ul>
+		</div>
+	</footer>	
+</body>
+</html>
